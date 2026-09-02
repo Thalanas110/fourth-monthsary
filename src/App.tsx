@@ -3,13 +3,17 @@ import sceneImage from '@/assets/scene.png';
 import { SiteHeader } from '@/components/site-header';
 import { HeroSection } from '@/components/hero-section';
 import { MoodFilter } from '@/components/mood-filter';
-import { moods, poems } from '@/data/poems';
+import { PoemCard } from '@/components/poem-card';
+import { moods, poems, type Poem } from '@/data/poems';
 
 export const APP_NAME = 'Poem Lantern';
 
 export default function App() {
   const [selectedMood, setSelectedMood] = useState('All feelings');
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [openPoem, setOpenPoem] = useState<Poem | null>(null);
   const visiblePoems = useMemo(() => poems.filter((poem) => selectedMood === 'All feelings' || poem.mood === selectedMood), [selectedMood]);
+  const toggleFavorite = (id: string) => setFavoriteIds((current) => current.includes(id) ? current.filter((item) => item !== id) : [...current, id]);
 
   return (
     <main className="app-shell" id="top">
@@ -26,7 +30,7 @@ export default function App() {
             </div>
             <div className="toolbar"><MoodFilter moods={moods} onSelect={setSelectedMood} selectedMood={selectedMood} /></div>
             <div className="poem-grid">
-              {visiblePoems.map((poem) => <article className="poem-card" key={poem.id}><span className="card-mood">{poem.mood}</span><h3>{poem.title}</h3><p>{poem.excerpt}</p><span className="author">by {poem.author} · {poem.length}</span></article>)}
+              {visiblePoems.map((poem) => <PoemCard isFavorite={favoriteIds.includes(poem.id)} key={poem.id} onOpen={setOpenPoem} onToggleFavorite={toggleFavorite} poem={poem} />)}
             </div>
           </div>
         </section>
