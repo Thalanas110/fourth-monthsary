@@ -1,11 +1,16 @@
+import { useMemo, useState } from 'react';
 import sceneImage from '@/assets/scene.png';
 import { SiteHeader } from '@/components/site-header';
 import { HeroSection } from '@/components/hero-section';
+import { MoodFilter } from '@/components/mood-filter';
 import { moods, poems } from '@/data/poems';
 
 export const APP_NAME = 'Poem Lantern';
 
 export default function App() {
+  const [selectedMood, setSelectedMood] = useState('All feelings');
+  const visiblePoems = useMemo(() => poems.filter((poem) => selectedMood === 'All feelings' || poem.mood === selectedMood), [selectedMood]);
+
   return (
     <main className="app-shell" id="top">
       <img className="site-background" src={sceneImage} alt="" aria-hidden="true" />
@@ -19,8 +24,9 @@ export default function App() {
               <div><div className="eyebrow">The lantern room · {poems.length.toString().padStart(2, '0')} poems</div><h2 className="section-title" id="library-title">What are you carrying?</h2></div>
               <p className="section-note">There is no wrong door here.<br />Take the one that glows.</p>
             </div>
+            <div className="toolbar"><MoodFilter moods={moods} onSelect={setSelectedMood} selectedMood={selectedMood} /></div>
             <div className="poem-grid">
-              {poems.map((poem) => <article className="poem-card" key={poem.id}><span className="card-mood">{poem.mood}</span><h3>{poem.title}</h3><p>{poem.excerpt}</p><span className="author">by {poem.author} · {poem.length}</span></article>)}
+              {visiblePoems.map((poem) => <article className="poem-card" key={poem.id}><span className="card-mood">{poem.mood}</span><h3>{poem.title}</h3><p>{poem.excerpt}</p><span className="author">by {poem.author} · {poem.length}</span></article>)}
             </div>
           </div>
         </section>
