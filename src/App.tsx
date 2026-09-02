@@ -2,9 +2,7 @@ import { useMemo, useState } from 'react';
 import sceneImage from '@/assets/scene.png';
 import { SiteHeader } from '@/components/site-header';
 import { HeroSection } from '@/components/hero-section';
-import { MoodFilter } from '@/components/mood-filter';
-import { PoemCard } from '@/components/poem-card';
-import { PoemSearch } from '@/components/poem-search';
+import { PoemLibrary } from '@/components/poem-library';
 import { moods, poems, type Poem } from '@/data/poems';
 
 export const APP_NAME = 'Poem Lantern';
@@ -31,18 +29,7 @@ export default function App() {
       <div className="page-content">
         <SiteHeader favoriteCount={0} />
         <HeroSection />
-        <section className="library-section" id="library" aria-labelledby="library-title">
-          <div className="library-inner">
-            <div className="section-head">
-              <div><div className="eyebrow">The lantern room · {poems.length.toString().padStart(2, '0')} poems</div><h2 className="section-title" id="library-title">What are you carrying?</h2></div>
-              <p className="section-note">There is no wrong door here.<br />Take the one that glows.</p>
-            </div>
-            <div className="toolbar"><MoodFilter moods={moods} onSelect={setSelectedMood} selectedMood={selectedMood} /><PoemSearch onQueryChange={setQuery} query={query} /></div>
-            <div className="poem-grid">
-              {visiblePoems.map((poem) => <PoemCard isFavorite={favoriteIds.includes(poem.id)} key={poem.id} onOpen={setOpenPoem} onToggleFavorite={toggleFavorite} poem={poem} />)}
-            </div>
-          </div>
-        </section>
+        <PoemLibrary favoriteIds={favoriteIds} moods={moods} onMoodChange={setSelectedMood} onOpen={setOpenPoem} onQueryChange={setQuery} onToggleFavorite={toggleFavorite} poems={visiblePoems} query={query} selectedMood={selectedMood} />
       </div>
     </main>
   );
