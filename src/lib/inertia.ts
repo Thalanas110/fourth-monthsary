@@ -1,13 +1,14 @@
 import { router } from '@inertiajs/core';
 
 let initialized = false;
+export const POEM_LANTERN_COMPONENT = 'PoemLantern';
 
 function initInertiaHistory() {
   if (initialized || typeof window === 'undefined') return;
 
   router.init({
     initialPage: {
-      component: 'PoemLantern',
+      component: POEM_LANTERN_COMPONENT,
       props: { errors: {} },
       url: window.location.href,
       version: null,
@@ -41,7 +42,7 @@ export function navigateToAnchor(href: string) {
 
   initInertiaHistory();
   router.push({
-    component: 'PoemLantern',
+    component: POEM_LANTERN_COMPONENT,
     props: {},
     url: nextUrl.href,
     clearHistory: false,

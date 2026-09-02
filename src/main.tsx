@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!, {
     console.error(error, errorInfo.componentStack);
   },
 }).render(
-  <ErrorBoundary>
+  <ErrorBoundary resetKey={window.location.pathname}>
     <App />
   </ErrorBoundary>,
 );

@@ -18,7 +18,7 @@ export function PoemReader({ poem, isFavorite, onClose, onToggleFavorite }: Poem
   }, [onClose]);
 
   return (
-    <div aria-label={`${poem.title} reader`} className="reader-overlay" data-testid="dialog-poem-reader" role="dialog">
+    <div aria-label={`${poem.title} reader`} aria-modal="true" className="reader-overlay" data-testid="dialog-poem-reader" role="dialog">
       <div className="reader-panel">
         <button aria-label="Close poem reader" className="close-reader" data-testid="button-close-reader" onClick={onClose} type="button"><X aria-hidden="true" size={15} /></button>
         <span className="eyebrow">{poem.mood}</span>
