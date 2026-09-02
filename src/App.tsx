@@ -3,6 +3,7 @@ import sceneImage from '@/assets/scene.png';
 import { SiteHeader } from '@/components/site-header';
 import { HeroSection } from '@/components/hero-section';
 import { PoemLibrary } from '@/components/poem-library';
+import { PoemReader } from '@/components/poem-reader';
 import { moods, poems, type Poem } from '@/data/poems';
 
 export const APP_NAME = 'Poem Lantern';
@@ -31,6 +32,7 @@ export default function App() {
         <HeroSection />
         <PoemLibrary favoriteIds={favoriteIds} moods={moods} onMoodChange={setSelectedMood} onOpen={setOpenPoem} onQueryChange={setQuery} onToggleFavorite={toggleFavorite} poems={visiblePoems} query={query} selectedMood={selectedMood} />
       </div>
+      {openPoem && <PoemReader isFavorite={favoriteIds.includes(openPoem.id)} onClose={() => setOpenPoem(null)} onToggleFavorite={toggleFavorite} poem={openPoem} />}
     </main>
   );
 }
