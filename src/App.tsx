@@ -38,6 +38,7 @@ export default function App() {
       <img className="site-background" src={sceneImage} alt="" aria-hidden="true" />
       <div className="background-veil" aria-hidden="true" />
       <AmbientField />
+      <div className="grain" aria-hidden="true" />
       <div className="page-content">
         <SiteHeader favoriteCount={favoriteIds.length} />
         <HeroSection />

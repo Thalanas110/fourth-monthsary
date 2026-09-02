@@ -21,7 +21,7 @@ export function PoemLibrary({ poems, moods, selectedMood, query, favoriteIds, on
     <section className="library-section" id="library" aria-labelledby="library-title">
       <div className="library-inner">
         <div className="section-head">
-          <div><div className="eyebrow">The lantern room · {poems.length.toString().padStart(2, '0')} poems</div><h2 className="section-title" id="library-title">What are you carrying?</h2></div>
+          <div><div className="eyebrow">The lantern room · 06 poems</div><h2 className="section-title" id="library-title">What are you carrying?</h2></div>
           <p className="section-note">There is no wrong door here.<br />Take the one that glows.</p>
         </div>
         <div className="toolbar">
