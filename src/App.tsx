@@ -5,6 +5,7 @@ import { HeroSection } from '@/components/hero-section';
 import { PoemLibrary } from '@/components/poem-library';
 import { PoemReader } from '@/components/poem-reader';
 import { AmbientField } from '@/components/ambient-field';
+import { RitualSection } from '@/components/ritual-section';
 import { useFavoritePoems } from '@/hooks/use-favorite-poems';
 import { useToastMessage } from '@/hooks/use-toast-message';
 import { moods, poems, type Poem } from '@/data/poems';
@@ -41,6 +42,7 @@ export default function App() {
         <SiteHeader favoriteCount={favoriteIds.length} />
         <HeroSection />
         <PoemLibrary favoriteIds={favoriteIds} moods={moods} onMoodChange={setSelectedMood} onOpen={setOpenPoem} onQueryChange={setQuery} onToggleFavorite={handleToggleFavorite} poems={visiblePoems} query={query} selectedMood={selectedMood} />
+        <RitualSection />
       </div>
       {openPoem && <PoemReader isFavorite={favoriteIds.includes(openPoem.id)} onClose={() => setOpenPoem(null)} onToggleFavorite={handleToggleFavorite} poem={openPoem} />}
       {message && <div className="toast-message" data-testid="status-favorite-toast" role="status">{message}</div>}
