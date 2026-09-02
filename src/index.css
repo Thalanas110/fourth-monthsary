@@ -43,6 +43,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 }
 .grain { background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); inset: 0; mix-blend-mode: soft-light; opacity: .042; pointer-events: none; position: fixed; z-index: 10; }
 .page-content { position: relative; z-index: 1; }
+.ambient-canvas { inset: 0; opacity: .5; pointer-events: none; position: fixed; z-index: 0; }
 .serif { font-family: var(--app-font-serif); }
 .mono { font-family: var(--app-font-mono); }
 .eyebrow { color: hsl(var(--primary)); font: 500 10px/1 var(--app-font-mono); letter-spacing: .18em; text-transform: uppercase; }

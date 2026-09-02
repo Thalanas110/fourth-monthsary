@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/site-header';
 import { HeroSection } from '@/components/hero-section';
 import { PoemLibrary } from '@/components/poem-library';
 import { PoemReader } from '@/components/poem-reader';
+import { AmbientField } from '@/components/ambient-field';
 import { useFavoritePoems } from '@/hooks/use-favorite-poems';
 import { useToastMessage } from '@/hooks/use-toast-message';
 import { moods, poems, type Poem } from '@/data/poems';
@@ -35,6 +36,7 @@ export default function App() {
     <main className="app-shell" id="top">
       <img className="site-background" src={sceneImage} alt="" aria-hidden="true" />
       <div className="background-veil" aria-hidden="true" />
+      <AmbientField />
       <div className="page-content">
         <SiteHeader favoriteCount={favoriteIds.length} />
         <HeroSection />
