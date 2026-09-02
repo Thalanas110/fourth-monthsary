@@ -18,4 +18,15 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.app-shell { min-height: 100dvh; }
+.app-shell { min-height: 100dvh; overflow: hidden; position: relative; }
+.site-background {
+  height: 100%; inset: 0; object-fit: cover; object-position: center;
+  position: fixed; width: 100%; z-index: -3;
+}
+.background-veil {
+  background:
+    linear-gradient(180deg, rgba(11, 8, 16, .76) 0%, rgba(16, 11, 22, .56) 48%, rgba(18, 12, 24, .82) 100%),
+    linear-gradient(90deg, rgba(13, 9, 18, .76) 0%, rgba(13, 9, 18, .16) 53%, rgba(13, 9, 18, .62) 100%);
+  inset: 0; pointer-events: none; position: fixed; z-index: -2;
+}
+.page-content { position: relative; z-index: 1; }
