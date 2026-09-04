@@ -11,8 +11,9 @@ describe('HeroSection', () => {
     expect(markup).toContain('monthsary, my madame :DD');
     expect(markup).toContain('A random surprise collection for our fourth monthsary, just for you.');
 
-    const leafLayers = markup.match(/<div class="hero-leaf-layer" aria-hidden="true">/g) ?? [];
-    const leafSpans = markup.match(/<span class="hero-leaf"[^>]*><\/span>/g) ?? [];
+    const leafLayers = [...markup.matchAll(/<div class="hero-leaf-layer" aria-hidden="true">([\s\S]*?)<\/div>/g)];
+    const leafLayerContents = leafLayers[0]?.[1] ?? '';
+    const leafSpans = leafLayerContents.match(/<span class="hero-leaf"[^>]*><\/span>/g) ?? [];
 
     expect(leafLayers).toHaveLength(1);
     expect(leafSpans).toHaveLength(30);
