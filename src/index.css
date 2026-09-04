@@ -61,8 +61,8 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .saved-link:hover { background: hsl(var(--secondary)); border-color: hsl(var(--primary) / .55); transform: translateY(-2px); }
 .saved-count { color: hsl(var(--primary)); font: 500 10px var(--app-font-mono); }
 
-.hero { align-items: center; display: flex; min-height: calc(100svh - 76px); margin: 0 auto; max-width: 1320px; padding: 76px 40px 112px; position: relative; }
-.hero-leaf-layer { inset: 0; pointer-events: none; position: absolute; z-index: 1; }
+.hero { align-items: center; display: flex; isolation: isolate; min-height: calc(100svh - 76px); margin: 0 auto; max-width: 1320px; overflow: hidden; padding: 76px 40px 112px; position: relative; }
+.hero-leaf-layer { inset: 0; overflow: hidden; pointer-events: none; position: absolute; z-index: 1; }
 .hero-leaf { animation: leaf-fall var(--leaf-duration) linear var(--leaf-delay) infinite; background: var(--leaf-color); border-radius: 75% 12% 75% 12%; clip-path: polygon(50% 0%, 91% 23%, 84% 66%, 50% 100%, 16% 66%, 9% 23%); contain: layout paint; height: var(--leaf-size); left: var(--leaf-left); opacity: 0; position: absolute; top: 0; transform-origin: center; width: var(--leaf-size); will-change: opacity, transform; }
 .hero-leaf::after { background: hsl(260 22% 9% / .28); content: ''; height: 1px; left: 18%; position: absolute; top: 50%; transform: rotate(-45deg); transform-origin: center; width: 70%; }
 .hero-leaf:nth-child(1) { --leaf-left: 39%; --leaf-delay: -13s; --leaf-duration: 25s; --leaf-drift: -3vw; --leaf-size: 15px; --leaf-start-rotation: -6deg; --leaf-end-rotation: 211deg; --leaf-opacity: .46; --leaf-color: #a7663a; }
@@ -101,7 +101,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .hero-title { color: hsl(var(--foreground)); font: 400 clamp(62px, 9vw, 126px)/.82 var(--app-font-serif); letter-spacing: -.055em; margin: 27px 0 30px; }
 .hero-title em { color: hsl(var(--primary)); }
 .hero-description { color: hsl(var(--muted-foreground)); font-size: 15px; line-height: 1.7; max-width: 385px; }
-.hero-rule { align-items: center; bottom: 42px; color: hsl(var(--muted-foreground)); display: flex; font: 10px var(--app-font-mono); gap: 12px; letter-spacing: .1em; position: absolute; right: 40px; text-transform: uppercase; }
+.hero-rule { align-items: center; bottom: 42px; color: hsl(var(--muted-foreground)); display: flex; font: 10px var(--app-font-mono); gap: 12px; letter-spacing: .1em; position: absolute; right: 40px; text-transform: uppercase; z-index: 2; }
 .hero-rule::before { background: hsl(var(--border)); content: ''; height: 1px; width: 58px; }
 .scroll-mark { animation: drift 2.8s ease-in-out infinite; color: hsl(var(--primary)); display: inline-block; font-size: 16px; }
 
@@ -171,11 +171,11 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 }
 @media (max-width: 800px) {
   .topbar { height: 68px; padding: 0 20px; } .nav-links { gap: 14px; } .nav-link { display: none; }
-  .hero { min-height: calc(100svh - 68px); padding: 65px 20px 90px; } .hero-rule { bottom: 22px; left: 20px; right: auto; }
+  .hero { min-height: calc(100svh - 68px); padding: 65px 20px 90px; } .hero-rule { bottom: 22px; left: 20px; right: auto; } .hero-leaf:nth-child(n + 16) { display: none; }
   .library-section { padding: 72px 20px 80px; } .section-head { align-items: start; flex-direction: column; gap: 16px; } .section-note { text-align: left; }
   .toolbar { align-items: stretch; flex-direction: column-reverse; gap: 25px; } .search-box { width: 100%; }
   .poem-grid { display: flex; flex-direction: column; } .poem-card, .poem-card:nth-child(n) { min-height: 270px; }
   .ritual { padding: 85px 20px 75px; } .ritual-inner { align-items: start; display: flex; flex-direction: column; gap: 46px; } .ritual-copy { padding-left: 19px; }
   .footer { margin: 0 20px; } .reader-overlay { padding: 12px; } .reader-panel { max-height: calc(100dvh - 24px); padding: 44px 24px 32px; }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .hero-leaf-layer { display: none; } }
