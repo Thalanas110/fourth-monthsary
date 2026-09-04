@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { moods, poems } from './poems';
+import { moods, poems } from '@/data/poems';
 
 describe('poem catalog', () => {
   it('starts with six poems across seven feeling options', () => {
