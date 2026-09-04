@@ -47,3 +47,7 @@ Before handoff, verify:
 7. A 30-second Pixel 5-sized Chrome performance comparison at 4× CPU throttling confirms no leaf-caused additional dropped frames, no leaf-caused long tasks over 50ms, and the 16.67ms frame-budget target.
 8. An 80-second visual inspection confirms three cycles of the slowest leaf with no in-bounds reset and no 500ms top/bottom 12% edge band interval without a leaf above `0.05` opacity.
 9. The working diff contains only the intended hero/style/preview changes plus this approved design record.
+
+## Commit history requirement
+
+The relevant project history must contain at least 10 non-empty commits. Every commit created for this work must be meaningful, reviewable, and related to a coherent implementation or verification increment; no empty or placeholder commits may be added solely to satisfy the count. The current repository already exceeds the minimum, so the implementation plan will prioritize useful commit boundaries rather than manufacturing additional history.
