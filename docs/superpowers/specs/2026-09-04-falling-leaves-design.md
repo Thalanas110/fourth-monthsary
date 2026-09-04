@@ -50,4 +50,4 @@ Before handoff, verify:
 
 ## Commit history requirement
 
-The relevant project history must contain at least 10 non-empty commits. Every commit created for this work must be meaningful, reviewable, and related to a coherent implementation or verification increment; no empty or placeholder commits may be added solely to satisfy the count. The current repository already exceeds the minimum, so the implementation plan will prioritize useful commit boundaries rather than manufacturing additional history.
+The falling-leaves modification itself must produce at least 10 new, non-empty commits after the current baseline. Every commit created for this work must be meaningful, reviewable, and related to a coherent design, test, implementation, preview, or verification increment; no empty or placeholder commits may be added solely to satisfy the count. The implementation plan must identify these commit boundaries explicitly, and the final verification must confirm the count and inspect each subject.
