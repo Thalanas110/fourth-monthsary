@@ -62,7 +62,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .saved-count { color: hsl(var(--primary)); font: 500 10px var(--app-font-mono); }
 
 .hero { align-items: center; display: flex; min-height: calc(100svh - 76px); margin: 0 auto; max-width: 1320px; padding: 76px 40px 112px; position: relative; }
-+.hero-leaf-layer { inset: 0; pointer-events: none; position: absolute; z-index: 1; }
+.hero-leaf-layer { inset: 0; pointer-events: none; position: absolute; z-index: 1; }
 .hero-leaf { animation: leaf-fall var(--leaf-duration) linear var(--leaf-delay) infinite; background: var(--leaf-color); border-radius: 75% 12% 75% 12%; clip-path: polygon(50% 0%, 91% 23%, 84% 66%, 50% 100%, 16% 66%, 9% 23%); contain: layout paint; height: var(--leaf-size); left: var(--leaf-left); opacity: 0; position: absolute; top: 0; transform-origin: center; width: var(--leaf-size); will-change: opacity, transform; }
 .hero-leaf::after { background: hsl(260 22% 9% / .28); content: ''; height: 1px; left: 18%; position: absolute; top: 50%; transform: rotate(-45deg); transform-origin: center; width: 70%; }
 .hero-leaf:nth-child(1) { --leaf-left: 39%; --leaf-delay: -13s; --leaf-duration: 25s; --leaf-drift: -3vw; --leaf-size: 15px; --leaf-start-rotation: -6deg; --leaf-end-rotation: 211deg; --leaf-opacity: .46; --leaf-color: #a7663a; }
