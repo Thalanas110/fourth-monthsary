@@ -1,6 +1,9 @@
 export function HeroSection() {
   return (
     <section className="hero" aria-labelledby="hero-title">
+      <div className="hero-leaf-layer" aria-hidden="true">
+        {Array.from({ length: 30 }, (_, index) => <span className="hero-leaf" key={index} />)}
+      </div>
       <div className="hero-copy">
         <div className="hero-kicker fade-in">A fourth monthsary suite</div>
         <h1 className="hero-title fade-in delay-1" id="hero-title">Happy 4th<br /><em>monthsary, my madame :DD</em></h1>
