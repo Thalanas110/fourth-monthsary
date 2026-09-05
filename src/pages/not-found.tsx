@@ -10,7 +10,7 @@ export default function NotFound() {
       <AmbientField />
       <div aria-hidden="true" className="grain" />
       <div className="page-content">
-        <SiteHeader favoriteCount={0} />
+        <SiteHeader favoriteCount={0} homePath={import.meta.env.BASE_URL} />
         <section className="not-found-page" aria-label="Page not found">
           <div className="not-found-copy">
             <p className="not-found-eyebrow">A wrong turn in the dark</p>

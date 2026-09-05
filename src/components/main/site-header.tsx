@@ -3,13 +3,21 @@ import { navigateToAnchor } from '@/lib/inertia';
 
 export interface SiteHeaderProps {
   favoriteCount: number;
+  homePath?: string;
 }
 
-function Logo() {
+function withHomePath(homePath: string | undefined, hash: string) {
+  if (!homePath) return hash;
+
+  const normalizedHomePath = homePath.endsWith('/') ? homePath : `${homePath}/`;
+  return `${normalizedHomePath}${hash}`;
+}
+
+function Logo({ homeHref }: { homeHref: string }) {
   return (
-    <a className="wordmark" data-testid="link-home" href="#top" onClick={(event) => {
+    <a className="wordmark" data-testid="link-home" href={homeHref} onClick={(event) => {
       event.preventDefault();
-      navigateToAnchor('#top');
+      navigateToAnchor(homeHref);
     }}>
       <span aria-hidden="true" className="lantern-mark" />
       <span className="wordmark-name">A Classic Surprise</span>
@@ -17,22 +25,26 @@ function Logo() {
   );
 }
 
-export function SiteHeader({ favoriteCount }: SiteHeaderProps) {
+export function SiteHeader({ favoriteCount, homePath }: SiteHeaderProps) {
+  const homeHref = withHomePath(homePath, '#top');
+  const libraryHref = withHomePath(homePath, '#library');
+  const ritualHref = withHomePath(homePath, '#ritual');
+
   return (
     <header className="topbar">
-      <Logo />
+      <Logo homeHref={homeHref} />
       <nav aria-label="Primary navigation" className="nav-links">
-        <a className="nav-link active" data-testid="link-find-a-poem" href="#library" onClick={(event) => {
+        <a className="nav-link active" data-testid="link-find-a-poem" href={libraryHref} onClick={(event) => {
           event.preventDefault();
-          navigateToAnchor('#library');
+          navigateToAnchor(libraryHref);
         }}>Find a poem</a>
-        <a className="nav-link" data-testid="link-about" href="#ritual" onClick={(event) => {
+        <a className="nav-link" data-testid="link-about" href={ritualHref} onClick={(event) => {
           event.preventDefault();
-          navigateToAnchor('#ritual');
+          navigateToAnchor(ritualHref);
         }}>The ritual</a>
-        <a className="saved-link" data-testid="link-saved-poems" href="#library" onClick={(event) => {
+        <a className="saved-link" data-testid="link-saved-poems" href={libraryHref} onClick={(event) => {
           event.preventDefault();
-          navigateToAnchor('#library');
+          navigateToAnchor(libraryHref);
         }}>
           <Heart aria-hidden="true" size={13} />
           <span>Saved</span>
