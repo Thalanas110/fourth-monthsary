@@ -51,7 +51,7 @@
 
 ## Ten-commit implementation ledger
 
-The baseline copy commit is not part of this ledger. Tasks 1–10 below must each produce exactly one new commit, yielding ten new commits for the falling-leaves modification.
+The baseline copy commit is not part of this ledger. Tasks 1–10 below must each produce one new commit, yielding at least ten new commits for the falling-leaves modification. Additional review-fix commits are allowed when they are non-empty, meaningful, and feature-related.
 
 ### Task 1: Add the hero leaf markup contract
 
@@ -179,5 +179,5 @@ The baseline copy commit is not part of this ledger. Tasks 1–10 below must eac
 - [ ] Run the direct-file preview with network access disabled; expected: it opens and resolves only local assets.
 - [ ] Run the 30-second Pixel 5-sized Chrome/4× CPU-throttled performance comparison; expected: enabling the leaf layer adds no dropped frames or leaf-caused long task over 50ms and stays within the 16.67ms frame budget.
 - [ ] Observe 80 seconds of animation; expected: three cycles of the slowest leaf show no in-bounds reset and no 500ms top/bottom 12% edge-band gap.
-- [ ] Identify the commit immediately before Task 1 (the isolated copy baseline) and run `git rev-list --count <feature-baseline>..HEAD`; expected: exactly 10 implementation commits for this modification. Run `git log --oneline <feature-baseline>..HEAD`; expected: every listed commit is non-empty, meaningful, and related to this feature, with the ten ledger subjects represented.
+- [ ] Identify the commit immediately before Task 1 (the isolated copy baseline) and run `git rev-list --count <feature-baseline>..HEAD`; expected: at least 10 implementation commits for this modification. Run `git log --oneline <feature-baseline>..HEAD`; expected: every listed commit is non-empty, meaningful, and related to this feature, with the ten ledger subjects represented plus any justified review-fix commits.
 - [ ] Run `git status --short`; expected: no unintended changes and the existing user-owned hero copy remains intact.
