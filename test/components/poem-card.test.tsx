@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { PoemCard } from '@/components/poem-card';
+import { PoemCard } from '@/components/poems/poem-card';
 import type { Poem } from '@/data/poems';
 
 const song: Poem = {

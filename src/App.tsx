@@ -1,11 +1,11 @@
 import { useMemo, useState } from 'react';
 import sceneImage from '@/assets/scene.png';
-import { SiteHeader } from '@/components/site-header';
-import { HeroSection } from '@/components/hero-section';
-import { PoemLibrary } from '@/components/poem-library';
-import { PoemReader } from '@/components/poem-reader';
-import { AmbientField } from '@/components/ambient-field';
-import { RitualSection } from '@/components/ritual-section';
+import { SiteHeader } from '@/components/main/site-header';
+import { HeroSection } from '@/components/main/hero-section';
+import { PoemLibrary } from '@/components/poems/poem-library';
+import { PoemReader } from '@/components/poems/poem-reader';
+import { AmbientField } from '@/components/main/ambient-field';
+import { RitualSection } from '@/components/main/ritual-section';
 import { useFavoritePoems } from '@/hooks/use-favorite-poems';
 import { useToastMessage } from '@/hooks/use-toast-message';
 import { moods, poems, type Poem } from '@/data/poems';

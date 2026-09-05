@@ -1,6 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { HeroSection } from '@/components/hero-section';
+import { HeroSection } from '@/components/main/hero-section';
 
 describe('HeroSection', () => {
   it('preserves the monthsary copy and exposes the hero leaf layer contract', () => {

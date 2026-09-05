@@ -12,7 +12,7 @@ function Logo() {
       navigateToAnchor('#top');
     }}>
       <span aria-hidden="true" className="lantern-mark" />
-      <span className="wordmark-name">Poem Lantern</span>
+      <span className="wordmark-name">A Classic Surprise</span>
     </a>
   );
 }

@@ -1,7 +1,7 @@
-import { EmptyResults } from '@/components/empty-results';
-import { MoodFilter } from '@/components/mood-filter';
-import { PoemCard } from '@/components/poem-card';
-import { PoemSearch } from '@/components/poem-search';
+import { EmptyResults } from '@/components/poems/empty-results';
+import { MoodFilter } from '@/components/poems/mood-filter';
+import { PoemCard } from '@/components/poems/poem-card';
+import { PoemSearch } from '@/components/poems/poem-search';
 import type { Poem } from '@/data/poems';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
