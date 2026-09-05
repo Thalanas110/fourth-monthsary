@@ -1,5 +1,6 @@
 import { Heart } from 'lucide-react';
 import { navigateToAnchor } from '@/lib/inertia';
+import { getHomePath } from '@/lib/routes';
 
 export interface SiteHeaderProps {
   favoriteCount: number;
@@ -9,8 +10,7 @@ export interface SiteHeaderProps {
 function withHomePath(homePath: string | undefined, hash: string) {
   if (!homePath) return hash;
 
-  const normalizedHomePath = homePath.endsWith('/') ? homePath : `${homePath}/`;
-  return `${normalizedHomePath}${hash}`;
+  return `${getHomePath(homePath)}${hash}`;
 }
 
 function Logo({ homeHref }: { homeHref: string }) {

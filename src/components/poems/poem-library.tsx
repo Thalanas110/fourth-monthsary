@@ -6,6 +6,7 @@ import type { Poem } from '@/data/poems';
 import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 export interface PoemLibraryProps {
+  basePath?: string;
   poems: Poem[];
   moods: string[];
   selectedMood: string;
@@ -13,11 +14,10 @@ export interface PoemLibraryProps {
   favoriteIds: string[];
   onMoodChange: (mood: string) => void;
   onQueryChange: (query: string) => void;
-  onOpen: (poem: Poem) => void;
   onToggleFavorite: (id: string) => void;
 }
 
-export function PoemLibrary({ poems, moods, selectedMood, query, favoriteIds, onMoodChange, onQueryChange, onOpen, onToggleFavorite }: PoemLibraryProps) {
+export function PoemLibrary({ basePath = import.meta.env.BASE_URL, poems, moods, selectedMood, query, favoriteIds, onMoodChange, onQueryChange, onToggleFavorite }: PoemLibraryProps) {
   const poemGridRef = useScrollReveal<HTMLDivElement>();
 
   return (
@@ -32,7 +32,7 @@ export function PoemLibrary({ poems, moods, selectedMood, query, favoriteIds, on
           <PoemSearch onQueryChange={onQueryChange} query={query} />
         </div>
         <div className="poem-grid" ref={poemGridRef}>
-          {poems.length > 0 ? poems.map((poem) => <PoemCard isFavorite={favoriteIds.includes(poem.id)} key={poem.id} onOpen={onOpen} onToggleFavorite={onToggleFavorite} poem={poem} />) : <EmptyResults />}
+          {poems.length > 0 ? poems.map((poem) => <PoemCard basePath={basePath} isFavorite={favoriteIds.includes(poem.id)} key={poem.id} onToggleFavorite={onToggleFavorite} poem={poem} />) : <EmptyResults />}
         </div>
       </div>
     </section>

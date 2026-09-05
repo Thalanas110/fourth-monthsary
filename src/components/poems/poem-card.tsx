@@ -1,14 +1,15 @@
 import { ArrowRight, Heart } from 'lucide-react';
 import type { Poem } from '@/data/poems';
+import { getPoemPath } from '@/lib/routes';
 
 export interface PoemCardProps {
+  basePath?: string;
   poem: Poem;
   isFavorite: boolean;
-  onOpen: (poem: Poem) => void;
   onToggleFavorite: (id: string) => void;
 }
 
-export function PoemCard({ poem, isFavorite, onOpen, onToggleFavorite }: PoemCardProps) {
+export function PoemCard({ basePath = import.meta.env.BASE_URL, poem, isFavorite, onToggleFavorite }: PoemCardProps) {
   const isSong = poem.kind === 'song';
 
   return (
@@ -32,9 +33,9 @@ export function PoemCard({ poem, isFavorite, onOpen, onToggleFavorite }: PoemCar
       <p data-testid={`text-excerpt-${poem.id}`}>{poem.excerpt}</p>
       <div className="card-footer">
         <span className="author" data-testid={`text-author-${poem.id}`}>by {poem.author} · {poem.length}</span>
-        <button className="read-button" data-testid={`button-read-${poem.id}`} onClick={() => onOpen(poem)} type="button">
+        <a aria-label={`${isSong ? 'Listen to' : 'Read'} ${poem.title}`} className="read-button" data-testid={`link-read-${poem.id}`} href={getPoemPath(poem.id, basePath)}>
           {isSong ? 'Listen' : 'Read'} <ArrowRight aria-hidden="true" />
-        </button>
+        </a>
       </div>
     </article>
   );

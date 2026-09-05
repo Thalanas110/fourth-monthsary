@@ -168,7 +168,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .poem-card p { color: hsl(var(--muted-foreground)); font: italic 16px/1.4 var(--app-font-serif); margin: 0; max-width: 355px; }
 .card-footer { align-items: end; display: flex; justify-content: space-between; margin-top: auto; padding-top: 27px; }
 .author { color: hsl(var(--muted-foreground)); font-size: 10px; }
-.read-button { align-items: center; background: transparent; border: 0; color: hsl(var(--foreground)); display: inline-flex; font: 10px var(--app-font-mono); gap: 7px; padding: 0; text-transform: uppercase; transition: color .2s, gap .2s; }
+.read-button { align-items: center; background: transparent; border: 0; color: hsl(var(--foreground)); display: inline-flex; font: 10px var(--app-font-mono); gap: 7px; padding: 0; text-decoration: none; text-transform: uppercase; transition: color .2s, gap .2s; }
 .read-button:hover { color: hsl(var(--primary)); gap: 11px; } .read-button svg { height: 13px; width: 13px; }
 .poem-card[data-reveal] { opacity: 0; transform: translate3d(0, 18px, 0); transition: opacity .65s ease, transform .65s cubic-bezier(.2, .8, .2, 1), border-color .3s ease, background .3s ease; transition-delay: calc((var(--reveal-index, 1) - 1) * 65ms); }
 .poem-card[data-reveal].is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
@@ -183,6 +183,31 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .poem-card[data-reveal]:nth-child(9) { --reveal-index: 9; }
 .empty-results { border: 1px dashed hsl(var(--border)); color: hsl(var(--muted-foreground)); grid-column: 1 / -1; padding: 55px; text-align: center; }
 .empty-results p { color: hsl(var(--foreground)); font: italic 25px var(--app-font-serif); margin: 0 0 7px; }
+
+.poem-page-shell { min-height: 100dvh; overflow-x: hidden; overflow-y: auto; }
+.poem-page-shell .page-content { display: flex; flex-direction: column; min-height: 100svh; }
+.poem-page { margin: 0 auto; max-width: 1240px; padding: 34px 40px 104px; width: 100%; }
+.poem-page-topline { align-items: center; border-bottom: 1px solid hsl(var(--border) / .72); display: flex; justify-content: space-between; padding-bottom: 19px; }
+.poem-page-back { align-items: center; color: hsl(var(--muted-foreground)); display: inline-flex; font: 10px var(--app-font-mono); gap: 8px; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; transition: color .2s, gap .2s; }
+.poem-page-back:hover { color: hsl(var(--primary)); gap: 11px; }
+.poem-page-marker { color: hsl(var(--muted-foreground) / .68); font: 10px var(--app-font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.poem-page-layout { display: grid; gap: clamp(55px, 9vw, 140px); grid-template-columns: minmax(280px, .72fr) minmax(0, 1.28fr); padding: clamp(62px, 9vw, 118px) clamp(0px, 4vw, 52px) 0; }
+.poem-page-header { align-self: start; max-width: 460px; padding-top: 7px; }
+.poem-page-eyebrow { align-items: center; display: flex; gap: 13px; }
+.poem-page-eyebrow .eyebrow { margin: 0; }
+.poem-page-kind { border: 1px solid hsl(var(--primary) / .38); border-radius: 999px; color: hsl(var(--primary)); font: 500 9px var(--app-font-mono); letter-spacing: .1em; padding: 5px 8px; text-transform: uppercase; }
+.poem-page[data-piece-kind='song'] .poem-page-kind { border-color: hsl(var(--accent) / .58); color: hsl(var(--accent)); }
+.poem-page-title { color: hsl(var(--foreground)); font: 400 clamp(58px, 7.2vw, 102px)/.84 var(--app-font-serif); letter-spacing: -.065em; margin: 28px 0 27px; max-width: 510px; }
+.poem-page-excerpt { color: hsl(var(--muted-foreground)); font: italic 19px/1.45 var(--app-font-serif); margin: 0; max-width: 390px; }
+.poem-page-byline { align-items: center; color: hsl(var(--muted-foreground)); display: flex; font: 10px var(--app-font-mono); gap: 9px; letter-spacing: .03em; margin-top: 35px; }
+.poem-page-reading-column { border-left: 1px solid hsl(var(--border)); max-width: 620px; padding: 7px 0 0 clamp(30px, 5vw, 72px); }
+.poem-page-rule { background: hsl(var(--primary)); height: 1px; margin-bottom: 39px; opacity: .7; width: 47px; }
+.poem-page-body { color: hsl(var(--foreground)); font: italic clamp(22px, 2.3vw, 31px)/1.52 var(--app-font-serif); margin: 0; max-width: 510px; white-space: pre-line; }
+.poem-page-footer { align-items: center; border-top: 1px solid hsl(var(--border)); display: flex; gap: 24px; justify-content: space-between; margin-top: 67px; padding-top: 19px; }
+.poem-page-footer p { color: hsl(var(--muted-foreground)); font: italic 15px var(--app-font-serif); margin: 0; }
+.poem-page-save { align-items: center; background: transparent; border: 0; color: hsl(var(--muted-foreground)); display: inline-flex; flex-shrink: 0; font: 10px var(--app-font-mono); gap: 8px; padding: 6px 0; text-transform: uppercase; transition: color .2s, transform .2s; }
+.poem-page-save:hover, .poem-page-save.is-favorite { color: hsl(var(--primary)); }
+.poem-page-save:hover { transform: translateY(-2px); }
 
 .ritual { margin: 0 auto; max-width: 1320px; padding: 112px 40px 125px; }
 .ritual-inner { align-items: center; display: grid; gap: 90px; grid-template-columns: 1fr 1fr; margin: auto; max-width: 920px; }
@@ -216,6 +241,16 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 }
 @media (max-width: 800px) {
   .topbar { height: 68px; padding: 0 20px; } .nav-links { gap: 14px; } .nav-link { display: none; }
+  .poem-page { padding: 27px 20px 72px; }
+  .poem-page-marker { display: none; }
+  .poem-page-layout { display: flex; flex-direction: column; gap: 49px; padding: 55px 0 0; }
+  .poem-page-header { padding-top: 0; }
+  .poem-page-title { font-size: clamp(57px, 15vw, 86px); margin: 26px 0 23px; }
+  .poem-page-excerpt { font-size: 18px; }
+  .poem-page-reading-column { border-left: 0; border-top: 1px solid hsl(var(--border)); max-width: none; padding: 31px 0 0; }
+  .poem-page-rule { margin-bottom: 31px; }
+  .poem-page-body { font-size: clamp(24px, 7vw, 30px); line-height: 1.48; }
+  .poem-page-footer { align-items: flex-start; flex-direction: column; gap: 16px; margin-top: 48px; }
   .not-found-page { align-content: center; gap: 28px; grid-template-columns: 1fr; min-height: calc(100svh - 68px); padding-top: 42px; }
   .not-found-copy { margin: 0 auto; }
   .not-found-number { font-size: clamp(92px, 29vw, 152px); }
