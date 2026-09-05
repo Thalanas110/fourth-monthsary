@@ -11,7 +11,7 @@ describe('falling leaves direct-file preview', () => {
     const html = readFileSync(previewPath, 'utf8');
 
     expect(html.match(/class="hero-leaf"/g) ?? []).toHaveLength(30);
-    expect(html).not.toMatch(/<script\b/i);
+    expect(html).not.toMatch(/<script\b[^>]+\bsrc=/i);
     expect(html).not.toMatch(/(?:src|href)\s*=\s*["'][^"']*(?:https?:|\/\/)/i);
     expect(html).not.toMatch(/(?:url|@import)[^;{]*(?:https?:|\/\/)/i);
     expect(html).toContain('src="../src/assets/scene.png"');

@@ -18,11 +18,24 @@
     * { box-sizing: border-box; }
     html { min-width: 320px; }
     body { margin: 0; min-width: 320px; background: var(--background); color: var(--foreground); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
-    .preview-shell { isolation: isolate; min-height: 100svh; overflow: hidden; position: relative; }
+    .preview-shell { isolation: isolate; min-height: 100dvh; overflow: hidden; position: relative; }
     .scene-background { height: 100%; inset: 0; object-fit: cover; object-position: center; position: fixed; width: 100%; z-index: -3; }
     .background-veil { background: linear-gradient(180deg, rgba(11, 8, 16, .76), rgba(16, 11, 22, .56) 48%, rgba(18, 12, 24, .82)), linear-gradient(90deg, rgba(13, 9, 18, .76), rgba(13, 9, 18, .16) 53%, rgba(13, 9, 18, .62)); inset: 0; pointer-events: none; position: fixed; z-index: -2; }
+    .page-content { position: relative; z-index: 1; }
 
-    .hero { align-items: center; display: flex; isolation: isolate; min-height: 100svh; overflow: hidden; padding: 76px 40px 112px; position: relative; }
+    .topbar { align-items: center; display: flex; height: 76px; justify-content: space-between; margin: 0 auto; max-width: 1320px; padding: 0 40px; }
+    .wordmark { align-items: center; color: var(--foreground); display: inline-flex; gap: 11px; text-decoration: none; }
+    .lantern-mark { display: grid; height: 30px; place-items: center; position: relative; width: 24px; }
+    .lantern-mark::before { background: var(--amber); border-radius: 50% 50% 45% 45%; box-shadow: 0 0 22px rgba(247, 181, 103, .48); content: ""; height: 17px; width: 12px; }
+    .lantern-mark::after { border: 1px solid rgba(247, 181, 103, .72); border-bottom: 0; border-radius: 12px 12px 0 0; content: ""; height: 20px; position: absolute; top: 2px; width: 17px; }
+    .wordmark-name { font: 24px/1 var(--serif); letter-spacing: -.02em; }
+    .nav-links { align-items: center; display: flex; gap: 28px; }
+    .nav-link { color: var(--muted); font-size: 12px; text-decoration: none; }
+    .nav-link.active { color: var(--foreground); }
+    .saved-link { align-items: center; border: 1px solid rgba(242, 232, 216, .2); border-radius: 999px; color: var(--foreground); display: inline-flex; font-size: 11px; gap: 8px; padding: 9px 13px; text-decoration: none; }
+    .saved-count { color: var(--amber); font: 500 10px var(--mono); }
+
+    .hero { align-items: center; display: flex; isolation: isolate; min-height: calc(100svh - 76px); overflow: hidden; padding: 76px 40px 112px; position: relative; }
     .hero-copy { max-width: 690px; position: relative; z-index: 2; }
     .hero-kicker { align-items: center; color: var(--amber); display: flex; font: 500 10px var(--mono); gap: 12px; letter-spacing: .2em; text-transform: uppercase; }
     .hero-kicker::before { background: var(--amber); content: ""; height: 1px; width: 31px; }
@@ -77,25 +90,90 @@
       100% { opacity: 0; transform: translate3d(var(--leaf-drift), calc(100svh + 18vh), 0) rotate(calc(var(--leaf-end-rotation) + 24deg)); }
     }
 
-    .performance-note { bottom: 20px; color: rgba(242, 232, 216, .62); font: 10px/1.5 var(--mono); left: 40px; letter-spacing: .04em; max-width: 250px; position: absolute; z-index: 3; }
+    .library-section { background: linear-gradient(180deg, rgba(29, 20, 38, .94), rgba(27, 18, 35, .86)); border-top: 1px solid rgba(242, 232, 216, .16); padding: 90px 40px 110px; position: relative; }
+    .library-section::before { background: radial-gradient(circle at 80% 0%, rgba(201, 110, 163, .13), transparent 33%); content: ""; inset: 0; pointer-events: none; position: absolute; }
+    .library-inner { margin: 0 auto; max-width: 1240px; position: relative; }
+    .section-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 37px; }
+    .eyebrow { color: var(--amber); font: 500 10px/1 var(--mono); letter-spacing: .18em; text-transform: uppercase; }
+    .section-title { font: 400 clamp(37px, 5vw, 60px)/.9 var(--serif); letter-spacing: -.04em; margin: 13px 0 0; }
+    .section-note { color: var(--muted); font-size: 12px; line-height: 1.6; max-width: 235px; text-align: right; }
+    .toolbar { align-items: center; display: flex; gap: 14px; justify-content: space-between; margin-bottom: 42px; }
+    .mood-list { display: flex; flex-wrap: wrap; gap: 7px; }
+    .mood-button { background: transparent; border: 1px solid rgba(242, 232, 216, .2); border-radius: 999px; color: var(--muted); font: 10px var(--mono); letter-spacing: .04em; padding: 10px 13px; }
+    .mood-button.selected { background: var(--amber); border-color: var(--amber); color: #20150e; }
+    .search-box { align-items: center; border-bottom: 1px solid rgba(242, 232, 216, .2); display: flex; gap: 9px; padding: 0 0 8px; width: 180px; }
+    .search-box span { color: var(--muted); font: 10px var(--mono); }
+    .search-box input { background: transparent; border: 0; color: var(--foreground); font-size: 12px; outline: none; width: 100%; }
+    .search-box input::placeholder { color: var(--muted); }
+    .poem-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 17px; }
+    .poem-card { background: rgba(34, 27, 45, .96); border: 1px solid rgba(242, 232, 216, .14); display: flex; flex-direction: column; min-height: 294px; padding: 24px; position: relative; }
+    .poem-card:nth-child(1) { grid-column: span 5; }
+    .poem-card:nth-child(2) { grid-column: span 4; }
+    .poem-card:nth-child(3) { grid-column: span 3; }
+    .poem-card:nth-child(4) { grid-column: span 3; min-height: 268px; }
+    .poem-card:nth-child(5) { grid-column: span 4; min-height: 268px; }
+    .poem-card:nth-child(6) { grid-column: span 5; min-height: 268px; }
+    .poem-card:nth-child(n + 7) { grid-column: span 4; min-height: 268px; }
+    .poem-card.is-song { background: linear-gradient(145deg, rgba(63, 39, 44, .98), rgba(34, 27, 45, .96)); border-color: rgba(247, 181, 103, .32); }
+    .card-top { align-items: start; display: flex; justify-content: space-between; }
+    .card-mood { color: var(--amber); font: 10px var(--mono); letter-spacing: .12em; text-transform: uppercase; }
+    .piece-kind { border: 1px solid rgba(247, 181, 103, .35); border-radius: 999px; color: var(--amber); font: 9px var(--mono); letter-spacing: .1em; padding: 5px 8px; text-transform: uppercase; }
+    .poem-card h3 { font: 400 clamp(28px, 3.2vw, 43px)/.95 var(--serif); letter-spacing: -.035em; margin: 29px 0 13px; max-width: 330px; }
+    .poem-card p { color: var(--muted); font: italic 16px/1.4 var(--serif); margin: 0; max-width: 355px; }
+    .card-footer { align-items: end; display: flex; justify-content: space-between; margin-top: auto; padding-top: 27px; }
+    .author { color: var(--muted); font-size: 10px; }
+     .read-button { background: transparent; border: 0; color: var(--foreground); font: 10px var(--mono); letter-spacing: .08em; padding: 0; text-transform: uppercase; }
+     .read-button::after { color: var(--amber); content: "  ->"; }
+     .poem-card[data-reveal] { opacity: 0; transform: translate3d(0, 18px, 0); transition: opacity .65s ease, transform .65s cubic-bezier(.2, .8, .2, 1); transition-delay: calc((var(--reveal-index, 1) - 1) * 65ms); }
+     .poem-card[data-reveal].is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+     .poem-card[data-reveal]:nth-child(2) { --reveal-index: 2; }
+     .poem-card[data-reveal]:nth-child(3) { --reveal-index: 3; }
+     .poem-card[data-reveal]:nth-child(4) { --reveal-index: 4; }
+     .poem-card[data-reveal]:nth-child(5) { --reveal-index: 5; }
+     .poem-card[data-reveal]:nth-child(6) { --reveal-index: 6; }
+     .poem-card[data-reveal]:nth-child(7) { --reveal-index: 7; }
+     .poem-card[data-reveal]:nth-child(8) { --reveal-index: 8; }
+     .poem-card[data-reveal]:nth-child(9) { --reveal-index: 9; }
+
+    .performance-note { bottom: auto; color: rgba(242, 232, 216, .62); font: 10px/1.5 var(--mono); left: 40px; letter-spacing: .04em; max-width: 250px; position: absolute; top: calc(100svh - 48px); z-index: 3; }
     .performance-note strong { color: var(--amber); font-weight: 500; }
 
     @media (max-width: 800px) {
-      .hero { min-height: 100svh; padding: 65px 20px 90px; }
+      .topbar { height: 68px; padding: 0 20px; }
+      .nav-links { gap: 14px; }
+      .nav-link { display: none; }
+      .hero { min-height: calc(100svh - 68px); padding: 65px 20px 90px; }
       .hero-rule { bottom: 22px; left: 20px; right: auto; }
       .hero-leaf:nth-child(n + 16) { display: none; }
-      .performance-note { bottom: 20px; left: 20px; max-width: 210px; }
+      .library-section { padding: 72px 20px 80px; }
+      .section-head { align-items: start; flex-direction: column; gap: 16px; }
+      .section-note { text-align: left; }
+      .toolbar { align-items: stretch; flex-direction: column-reverse; gap: 25px; }
+      .search-box { width: 100%; }
+      .poem-grid { display: flex; flex-direction: column; }
+      .poem-card, .poem-card:nth-child(n) { min-height: 270px; }
+      .performance-note { bottom: auto; left: 20px; max-width: 210px; top: calc(100svh - 48px); }
     }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-leaf-layer { display: none; }
-    }
+     @media (prefers-reduced-motion: reduce) {
+       .hero-leaf-layer { display: none; }
+       .poem-card[data-reveal] { opacity: 1; transform: none; transition: none; }
+     }
   </style>
 </head>
 <body>
-  <main class="preview-shell">
+  <main class="preview-shell" id="top">
     <img class="scene-background" src="../src/assets/scene.png" alt="" aria-hidden="true">
     <div class="background-veil" aria-hidden="true"></div>
-    <section class="hero" aria-labelledby="hero-title">
+    <div class="page-content">
+      <header class="topbar">
+        <a class="wordmark" href="#top"><span aria-hidden="true" class="lantern-mark"></span><span class="wordmark-name">Poem Lantern</span></a>
+        <nav aria-label="Primary navigation" class="nav-links">
+          <a class="nav-link active" href="#library">Find a poem</a>
+          <a class="nav-link" href="#library">The ritual</a>
+          <a class="saved-link" href="#library">&#9825; <span>Saved</span> <span class="saved-count">0</span></a>
+        </nav>
+      </header>
+      <section class="hero" aria-labelledby="hero-title">
       <div class="hero-leaf-layer" aria-hidden="true">
         <span class="hero-leaf"></span>
         <span class="hero-leaf"></span>
@@ -136,7 +214,51 @@
       <div class="hero-rule"><span class="scroll-mark">↓</span> Scroll to choose a poem</div>
     </section>
     <p class="performance-note"><strong>Performance target</strong><br>15 leaves at ≤800px · 30 leaves above · transform/opacity-only · 60fps mobile budget</p>
+      <section class="library-section" id="library" aria-labelledby="library-title">
+        <div class="library-inner">
+          <div class="section-head">
+            <div><div class="eyebrow">The lantern room &middot; 09 pieces</div><h2 class="section-title" id="library-title">What are you carrying?</h2></div>
+            <p class="section-note">Seven poems. Two songs.<br>Take the one that glows.</p>
+          </div>
+          <div class="toolbar">
+            <div class="mood-list" aria-label="Filter by feeling">
+              <button class="mood-button selected" type="button">All feelings</button><button class="mood-button" type="button">Longing</button><button class="mood-button" type="button">Tenderness</button><button class="mood-button" type="button">Wonder</button>
+            </div>
+            <label class="search-box"><span aria-hidden="true">/</span><input aria-label="Search pieces" placeholder="Search the room" type="search"></label>
+          </div>
+          <div class="poem-grid">
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Longing</span><span class="piece-kind">Poem</span></div><h3>Blue Hour</h3><p>The day leaves by the river, carrying all the words we did not say.</p><div class="card-footer"><span class="author">by Mara Ellison &middot; 2 min</span><button class="read-button" type="button">Read</button></div></article>
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Stillness</span><span class="piece-kind">Poem</span></div><h3>The Last Light</h3><p>At the edge of evening, even the windows seem to be holding their breath.</p><div class="card-footer"><span class="author">by Jonas Wren &middot; 3 min</span><button class="read-button" type="button">Read</button></div></article>
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Tenderness</span><span class="piece-kind">Poem</span></div><h3>Small Weather</h3><p>You bring the rain in on your shoulders. I make a place for it beside me.</p><div class="card-footer"><span class="author">by Nia Okafor &middot; 2 min</span><button class="read-button" type="button">Read</button></div></article>
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Renewal</span><span class="piece-kind">Poem</span></div><h3>After the Rain</h3><p>Puddles keep the sky a little longer than the sky knows how to stay.</p><div class="card-footer"><span class="author">by Theo Bell &middot; 2 min</span><button class="read-button" type="button">Read</button></div></article>
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Nostalgia</span><span class="piece-kind">Poem</span></div><h3>Postcard Home</h3><p>I kept the evening in my pocket, folded twice, for the train ride home.</p><div class="card-footer"><span class="author">by Lena Vale &middot; 3 min</span><button class="read-button" type="button">Read</button></div></article>
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Wonder</span><span class="piece-kind">Poem</span></div><h3>Night Bloom</h3><p>Some things only open when the world has stopped looking for them.</p><div class="card-footer"><span class="author">by Ari Santos &middot; 2 min</span><button class="read-button" type="button">Read</button></div></article>
+            <article class="poem-card is-song" data-reveal><div class="card-top"><span class="card-mood">Warmth</span><span class="piece-kind">Song</span></div><h3>Under the Same Moon</h3><p>A little melody for the nights when distance feels softer than usual.</p><div class="card-footer"><span class="author">by The Lanterns &middot; 3:42</span><button class="read-button" type="button">Listen</button></div></article>
+            <article class="poem-card is-song" data-reveal><div class="card-top"><span class="card-mood">Devotion</span><span class="piece-kind">Song</span></div><h3>Slow Dancing in the Kitchen</h3><p>For ordinary rooms that become our favorite places by staying together.</p><div class="card-footer"><span class="author">by June &amp; August &middot; 4:08</span><button class="read-button" type="button">Listen</button></div></article>
+            <article class="poem-card" data-reveal><div class="card-top"><span class="card-mood">Hope</span><span class="piece-kind">Poem</span></div><h3>Wish You Were Here</h3><p>Every small light in the city knows a little something about wanting.</p><div class="card-footer"><span class="author">by Mira Sol &middot; 2 min</span><button class="read-button" type="button">Read</button></div></article>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
-</body>
-</html>
+  <script>
+    const revealCards = document.querySelectorAll('.poem-card[data-reveal]');
+    const revealObserver = 'IntersectionObserver' in window
+      ? new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const card = entry.target;
+            card.classList.add('is-visible');
+            observer.unobserve(card);
+          });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.16 })
+      : null;
 
+    if (revealObserver) {
+      revealCards.forEach((card) => revealObserver.observe(card));
+    } else {
+      revealCards.forEach((card) => card.classList.add('is-visible'));
+    }
+  </script>
+ </body>
+</html>

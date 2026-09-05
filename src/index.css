@@ -124,9 +124,13 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .poem-card { background: hsl(var(--card)); border: 1px solid hsl(var(--border) / .78); display: flex; flex-direction: column; min-height: 316px; padding: 24px; position: relative; transition: border-color .3s ease, transform .3s ease, background .3s ease; }
 .poem-card:nth-child(1) { grid-column: span 5; } .poem-card:nth-child(2) { grid-column: span 4; } .poem-card:nth-child(3) { grid-column: span 3; }
 .poem-card:nth-child(4) { grid-column: span 3; min-height: 278px; } .poem-card:nth-child(5) { grid-column: span 4; min-height: 278px; } .poem-card:nth-child(6) { grid-column: span 5; min-height: 278px; }
+.poem-card:nth-child(n + 7) { grid-column: span 4; min-height: 278px; }
 .poem-card:hover { background: hsl(260 20% 16%); border-color: hsl(var(--primary) / .6); transform: translateY(-5px); }
 .card-top { align-items: start; display: flex; justify-content: space-between; }
+.card-tools { align-items: center; display: flex; gap: 12px; }
 .card-mood { color: hsl(var(--primary)); font: 10px var(--app-font-mono); letter-spacing: .12em; text-transform: uppercase; }
+.piece-kind { border: 1px solid hsl(var(--primary) / .38); border-radius: 999px; color: hsl(var(--primary)); font: 500 9px var(--app-font-mono); letter-spacing: .1em; padding: 5px 8px; text-transform: uppercase; }
+.poem-card.is-song { background: linear-gradient(145deg, hsl(340 24% 20%), hsl(var(--card))); border-color: hsl(var(--primary) / .32); }
 .favorite-button { background: transparent; border: 0; color: hsl(var(--muted-foreground)); padding: 0; transition: color .2s, transform .2s; }
 .favorite-button:hover, .favorite-button.is-favorite { color: hsl(var(--primary)); } .favorite-button:hover { transform: scale(1.12); }
 .favorite-button svg { height: 17px; width: 17px; }
@@ -136,6 +140,17 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .author { color: hsl(var(--muted-foreground)); font-size: 10px; }
 .read-button { align-items: center; background: transparent; border: 0; color: hsl(var(--foreground)); display: inline-flex; font: 10px var(--app-font-mono); gap: 7px; padding: 0; text-transform: uppercase; transition: color .2s, gap .2s; }
 .read-button:hover { color: hsl(var(--primary)); gap: 11px; } .read-button svg { height: 13px; width: 13px; }
+.poem-card[data-reveal] { opacity: 0; transform: translate3d(0, 18px, 0); transition: opacity .65s ease, transform .65s cubic-bezier(.2, .8, .2, 1), border-color .3s ease, background .3s ease; transition-delay: calc((var(--reveal-index, 1) - 1) * 65ms); }
+.poem-card[data-reveal].is-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+.poem-card[data-reveal].is-visible:hover { transform: translateY(-5px); }
+.poem-card[data-reveal]:nth-child(2) { --reveal-index: 2; }
+.poem-card[data-reveal]:nth-child(3) { --reveal-index: 3; }
+.poem-card[data-reveal]:nth-child(4) { --reveal-index: 4; }
+.poem-card[data-reveal]:nth-child(5) { --reveal-index: 5; }
+.poem-card[data-reveal]:nth-child(6) { --reveal-index: 6; }
+.poem-card[data-reveal]:nth-child(7) { --reveal-index: 7; }
+.poem-card[data-reveal]:nth-child(8) { --reveal-index: 8; }
+.poem-card[data-reveal]:nth-child(9) { --reveal-index: 9; }
 .empty-results { border: 1px dashed hsl(var(--border)); color: hsl(var(--muted-foreground)); grid-column: 1 / -1; padding: 55px; text-align: center; }
 .empty-results p { color: hsl(var(--foreground)); font: italic 25px var(--app-font-serif); margin: 0 0 7px; }
 
@@ -178,4 +193,4 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   .ritual { padding: 85px 20px 75px; } .ritual-inner { align-items: start; display: flex; flex-direction: column; gap: 46px; } .ritual-copy { padding-left: 19px; }
   .footer { margin: 0 20px; } .reader-overlay { padding: 12px; } .reader-panel { max-height: calc(100dvh - 24px); padding: 44px 24px 32px; }
 }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .hero-leaf-layer { display: none; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } .hero-leaf-layer { display: none; } .poem-card[data-reveal] { opacity: 1; transform: none; transition: none; } }
