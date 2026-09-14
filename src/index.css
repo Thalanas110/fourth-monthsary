@@ -137,7 +137,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .hero-rule::before { background: hsl(var(--border)); content: ''; height: 1px; width: 58px; }
 .scroll-mark { color: hsl(var(--primary)); display: inline-block; font-size: 16px; }
 
-.library-section { background: linear-gradient(180deg, rgba(29, 20, 38, .88), rgba(27, 18, 35, .76)); backdrop-filter: blur(6px); border-top: 1px solid hsl(var(--border) / .72); padding: 90px 40px 110px; position: relative; }
+.library-section { background: linear-gradient(180deg, rgba(29, 20, 38, .88), rgba(27, 18, 35, .76)); backdrop-filter: blur(6px); padding: 90px 40px 110px; position: relative; }
 .library-section::before { background: radial-gradient(circle at 80% 0%, hsl(318 28% 52% / .12), transparent 33%); content: ''; inset: 0; pointer-events: none; position: absolute; }
 .library-inner { margin: 0 auto; max-width: 1240px; position: relative; }
 .section-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 37px; }
@@ -262,7 +262,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   .not-found-lantern { height: 168px; width: 140px; }
   .not-found-orbit-caption { right: 8%; top: 4%; }
   .not-found-stage-note { bottom: 0; right: 4%; }
-  .hero { min-height: calc(100svh - 68px); padding: 65px 20px 90px; } .hero-transition::before { filter: blur(20px); height: 118px; opacity: min(var(--hero-transition-opacity, .38), .72); } .hero-rule { bottom: 22px; left: 20px; right: auto; } .hero-leaf:nth-child(n + 16) { display: none; }
+  .hero { min-height: calc(100svh - 68px); padding: 65px 20px 90px; } .hero-transition::before { filter: blur(20px); height: clamp(170px, 42vw, 250px); opacity: min(var(--hero-transition-opacity, .38), .72); transform: translateY(52%); } .hero-rule { bottom: 22px; left: 20px; right: auto; } .hero-leaf:nth-child(n + 16) { display: none; }
   .library-section { padding: 72px 20px 80px; } .section-head { align-items: start; flex-direction: column; gap: 16px; } .section-note { text-align: left; }
   .toolbar { align-items: stretch; flex-direction: column-reverse; gap: 25px; } .search-box { width: 100%; }
   .poem-grid { display: flex; flex-direction: column; } .poem-card, .poem-card:nth-child(n) { min-height: 270px; }

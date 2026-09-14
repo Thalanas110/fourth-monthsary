@@ -20,8 +20,12 @@ describe('hero-to-poems scroll fade', () => {
 
   it('keeps mobile and reduced-motion overrides in place', () => {
     const css = readFileSync(cssPath, 'utf8');
+    const mobileStart = css.indexOf('@media (max-width: 800px)');
+    const reducedMotionStart = css.indexOf('@media (prefers-reduced-motion: reduce)');
+    const mobileCss = css.slice(mobileStart, reducedMotionStart);
 
-    expect(css).toMatch(/@media \(max-width: 800px\)[\s\S]*\.hero-transition/);
+    expect(mobileCss).toMatch(/\.hero-transition::before\s*\{[^}]*height:\s*clamp\(170px/);
     expect(css).toMatch(/@media \(prefers-reduced-motion: reduce\)[\s\S]*\.hero-transition/);
+    expect(css).not.toMatch(/\.library-section\s*\{[^}]*border-top:\s*1px solid/);
   });
 });
