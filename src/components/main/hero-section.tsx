@@ -1,6 +1,11 @@
+import { useHeroScrollFade } from '@/hooks/use-hero-scroll-fade';
+
 export function HeroSection() {
+  const heroRef = useHeroScrollFade();
+
   return (
-    <section className="hero" aria-labelledby="hero-title">
+    <section className="hero" ref={heroRef} aria-labelledby="hero-title">
+      <div className="hero-transition" aria-hidden="true" />
       <div className="hero-leaf-layer" aria-hidden="true">
         {Array.from({ length: 30 }, (_, index) => <span className="hero-leaf" key={index} />)}
       </div>

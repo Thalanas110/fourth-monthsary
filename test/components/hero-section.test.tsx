@@ -17,5 +17,7 @@ describe('HeroSection', () => {
 
     expect(leafLayers).toHaveLength(1);
     expect(leafSpans).toHaveLength(30);
+    expect(markup.match(/<div class="hero-transition" aria-hidden="true"><\/div>/g)).toHaveLength(1);
+    expect(markup).toContain('<section class="hero"');
   });
 });
