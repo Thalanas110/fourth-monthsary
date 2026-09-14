@@ -1,11 +1,11 @@
 import { useHeroScrollFade } from '@/hooks/use-hero-scroll-fade';
 
 export function HeroSection() {
-  const heroRef = useHeroScrollFade();
+  const { heroRef, transitionRef } = useHeroScrollFade<HTMLElementTagNameMap['section'], HTMLElementTagNameMap['div']>();
 
   return (
+    <>
     <section className="hero" ref={heroRef} aria-labelledby="hero-title">
-      <div className="hero-transition" aria-hidden="true" />
       <div className="hero-leaf-layer" aria-hidden="true">
         {Array.from({ length: 30 }, (_, index) => <span className="hero-leaf" key={index} />)}
       </div>
@@ -18,5 +18,7 @@ export function HeroSection() {
       </div>
       <div className="hero-rule fade-in delay-3"><span className="scroll-mark">↓</span> Scroll to choose a poem</div>
     </section>
+    <div className="hero-transition" ref={transitionRef} aria-hidden="true" />
+    </>
   );
 }

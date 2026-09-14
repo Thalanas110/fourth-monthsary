@@ -8,8 +8,8 @@ import { useHeroScrollFade } from '@/hooks/use-hero-scroll-fade';
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', { configurable: true, value: true });
 
 function FadeProbe() {
-  const ref = useHeroScrollFade();
-  return <section data-testid="hero" ref={ref} />;
+  const { heroRef, transitionRef } = useHeroScrollFade<HTMLElementTagNameMap['section'], HTMLElementTagNameMap['div']>();
+  return <><section data-testid="hero" ref={heroRef} /><div data-testid="transition" ref={transitionRef} /></>;
 }
 
 describe('useHeroScrollFade', () => {
@@ -44,19 +44,20 @@ describe('useHeroScrollFade', () => {
       });
 
       const hero = container.querySelector<HTMLElement>('[data-testid="hero"]');
+      const transition = container.querySelector<HTMLElement>('[data-testid="transition"]');
       act(() => pendingCallback?.(0));
-      expect(hero?.style.getPropertyValue('--hero-transition-progress')).toBe('0.000');
+      expect(transition?.style.getPropertyValue('--hero-transition-progress')).toBe('0.000');
 
       boundaryBottom = 450;
       act(() => window.dispatchEvent(new Event('scroll')));
       act(() => pendingCallback?.(0));
-      expect(hero?.style.getPropertyValue('--hero-transition-progress')).toBe('1.000');
-      expect(hero?.style.getPropertyValue('--hero-transition-opacity')).toBe('1.000');
+      expect(transition?.style.getPropertyValue('--hero-transition-progress')).toBe('1.000');
+      expect(transition?.style.getPropertyValue('--hero-transition-opacity')).toBe('1.000');
 
       boundaryBottom = 2000;
       act(() => window.dispatchEvent(new Event('resize')));
       act(() => pendingCallback?.(0));
-      expect(hero?.style.getPropertyValue('--hero-transition-progress')).toBe('0.000');
+      expect(transition?.style.getPropertyValue('--hero-transition-progress')).toBe('0.000');
 
       act(() => root?.unmount());
       didUnmount = true;

@@ -19,5 +19,6 @@ describe('HeroSection', () => {
     expect(leafSpans).toHaveLength(30);
     expect(markup.match(/<div class="hero-transition" aria-hidden="true"><\/div>/g)).toHaveLength(1);
     expect(markup).toContain('<section class="hero"');
+    expect(markup.indexOf('<div class="hero-transition"')).toBeGreaterThan(markup.indexOf('</section>'));
   });
 });
