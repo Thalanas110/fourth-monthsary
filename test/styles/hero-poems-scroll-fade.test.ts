@@ -14,6 +14,8 @@ describe('hero-to-poems scroll fade', () => {
     expect(visualLayer).toMatch(/bottom:\s*0/);
     expect(visualLayer).toMatch(/opacity:\s*var\(--hero-transition-opacity/);
     expect(visualLayer).toMatch(/filter:\s*blur\(/);
+    expect(visualLayer).toMatch(/background:[^;]*linear-gradient/);
+    expect(visualLayer).toMatch(/hsl\(var\(--background\)/);
   });
 
   it('keeps mobile and reduced-motion overrides in place', () => {
