@@ -133,6 +133,69 @@ I leave one on for you,
 in case the dark
 needs a direction home.`,
   },
+  {
+    id: 'if-i-could-be-there', title: 'If I Could Be There', author: 'Adriaan M. Dimate', mood: 'Longing', kind: 'poem', length: '3 min read',
+    excerpt: 'A thousand dreams may yet come true, but most of all—I just want you.',
+    body: `Some nights I stare into the night,
+And wonder if you're doing right;
+I hope you're somewhere warm and sound,
+Where peace and gentleness surround.
+
+I wish these miles would fade away,
+So I could reach you there today;
+No screens or distance left between,
+Just you and me where I can be seen.
+
+I wish that I could hold your hand,
+And safely by your side could stand;
+To hear your voice so warm and clear,
+And know you're safe whenever I'm near.
+
+There are so many things I hide,
+So many worries kept inside;
+I'd rather give you peaceful days,
+Than burden you with all my dismays.
+
+But, Madame, when the stars appear bright,
+My thoughts return to you each night;
+I wonder if you're smiling too,
+While every thought comes back to you.
+
+I wish I could already hold you tight,
+And keep you close throughout the night;
+Your head upon my chest could stay,
+While all our worries drift away.
+
+I wish we'd have an afternoon free,
+With nowhere else we're meant to be;
+Just laughing underneath the sun,
+Together having simple fun.
+
+I want those moments, small and sweet,
+The kind that make a life complete;
+Your sleepy voice, your stories too,
+And waking every day with you.
+
+And someday distance will be gone,
+And we'll no longer wait till dawn;
+I'll treasure every laugh we share,
+Because I'll finally have you there.
+
+Until that day, when silence stays,
+I'll keep my light through darkest days;
+No matter when its glow you see,
+That little light will always be me.
+
+Because beneath each worried thought,
+There lies the future I have sought;
+I need no perfect skies of blue,
+I only want a life with you.
+
+So please be safe tonight, my dear,
+Until the day I can be near;
+A thousand dreams may yet come true,
+But most of all—I just want you.`,
+  },
 ];
 
 export const moods = ['All feelings', 'Longing', 'Stillness', 'Tenderness', 'Renewal', 'Nostalgia', 'Wonder'];
