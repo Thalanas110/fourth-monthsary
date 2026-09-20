@@ -4,7 +4,7 @@ import { act } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
-import { SplashScreen } from '@/components/main/splash-screen';
+import { SPLASH_DURATION_MS, SPLASH_FADE_MS, SplashScreen } from '@/components/main/splash-screen';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', { configurable: true, value: true });
 
@@ -56,6 +56,36 @@ describe('SplashScreen', () => {
     } finally {
       if (!didUnmount) act(() => root?.unmount());
       container.remove();
+    }
+  });
+
+  it('fades out after the splash duration and unmounts after the fade', () => {
+    vi.useFakeTimers();
+    stubMatchMedia(false);
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    let root: Root | undefined;
+    let didUnmount = false;
+    try {
+      act(() => {
+        root = createRoot(container);
+        root.render(<SplashScreen />);
+      });
+      expect(container.querySelector('.splash-screen')).not.toBeNull();
+      expect(container.querySelector('.splash-screen--hiding')).toBeNull();
+
+      act(() => vi.advanceTimersByTime(SPLASH_DURATION_MS));
+      expect(container.querySelector('.splash-screen--hiding')).not.toBeNull();
+
+      act(() => vi.advanceTimersByTime(SPLASH_FADE_MS));
+      expect(container.querySelector('.splash-screen')).toBeNull();
+
+      act(() => root?.unmount());
+      didUnmount = true;
+    } finally {
+      if (!didUnmount) act(() => root?.unmount());
+      container.remove();
+      vi.useRealTimers();
     }
   });
 });
