@@ -3,13 +3,13 @@ import sceneImage from '@/assets/scene.png';
 import { SiteHeader } from '@/components/main/site-header';
 import { HeroSection } from '@/components/main/hero-section';
 import { PoemLibrary } from '@/components/poems/poem-library';
-import { SongLibrary } from '@/components/songs/song-library';
 import { AmbientField } from '@/components/main/ambient-field';
 import { RitualSection } from '@/components/main/ritual-section';
-import { songs } from '@/data/songs';
 import { useFavoritePoems } from '@/hooks/use-favorite-poems';
-import { SONG_UNLOCK_CLICK_COUNT, useSongUnlock } from '@/hooks/use-song-unlock';
+import { useSongUnlock } from '@/hooks/use-song-unlock';
 import { useToastMessage } from '@/hooks/use-toast-message';
+import { navigateToPath } from '@/lib/inertia';
+import { getSongsPath } from '@/lib/routes';
 import { moods, poems } from '@/data/poems';
 
 export const APP_NAME = 'Poem Lantern';
@@ -18,7 +18,7 @@ export default function App() {
   const [selectedMood, setSelectedMood] = useState('All feelings');
   const [query, setQuery] = useState('');
   const { favoriteIds, toggleFavorite } = useFavoritePoems();
-  const { clickLantern, isUnlocked: isSongsUnlocked, progress: songUnlockProgress } = useSongUnlock();
+  const { clickLantern, isUnlocked: isSongsUnlocked } = useSongUnlock();
   const { message, show } = useToastMessage();
   const visiblePoems = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -35,9 +35,8 @@ export default function App() {
     if (poem) show(alreadySaved ? `${poem.title} left your saved poems` : `${poem.title} saved for later`);
   };
   const handleLanternClick = () => {
-    const willUnlock = !isSongsUnlocked && songUnlockProgress === SONG_UNLOCK_CLICK_COUNT - 1;
-    if (willUnlock) show('Songs unlocked. The hidden library is yours.');
-    clickLantern();
+    const unlockedNow = !isSongsUnlocked && clickLantern();
+    if (unlockedNow) navigateToPath(getSongsPath(import.meta.env.BASE_URL));
   };
 
   return (
@@ -50,7 +49,6 @@ export default function App() {
         <SiteHeader favoriteCount={favoriteIds.length} isSongsUnlocked={isSongsUnlocked} onLanternClick={handleLanternClick} />
         <HeroSection isSongsUnlocked={isSongsUnlocked} onLanternClick={handleLanternClick} />
         <PoemLibrary basePath={import.meta.env.BASE_URL} favoriteIds={favoriteIds} moods={moods} onMoodChange={setSelectedMood} onQueryChange={setQuery} onToggleFavorite={handleToggleFavorite} poems={visiblePoems} query={query} selectedMood={selectedMood} />
-        {isSongsUnlocked && <SongLibrary songs={songs} />}
         <RitualSection />
       </div>
       {message && <div className="toast-message" data-testid="status-favorite-toast" role="status">{message}</div>}

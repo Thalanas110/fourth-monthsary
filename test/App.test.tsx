@@ -3,7 +3,13 @@
 import { act } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { navigateToPath } from '@/lib/inertia';
 import App, { APP_NAME } from '@/App';
+
+vi.mock('@/lib/inertia', async () => ({
+  ...await vi.importActual<typeof import('@/lib/inertia')>('@/lib/inertia'),
+  navigateToPath: vi.fn(),
+}));
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', { configurable: true, value: true });
 Object.defineProperty(window, 'matchMedia', {
@@ -23,6 +29,8 @@ vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(null);
 
 afterEach(() => {
   window.localStorage.removeItem('poem-lantern:songs-unlocked');
+  window.localStorage.removeItem('poem-lantern:songs-access-granted');
+  vi.mocked(navigateToPath).mockClear();
 });
 
 describe('initial application scaffold', () => {
@@ -30,7 +38,7 @@ describe('initial application scaffold', () => {
     expect(APP_NAME).toBe('Poem Lantern');
   });
 
-  it('reveals the song library after clicking either lantern seven times', () => {
+  it('navigates to the songs route after clicking either lantern seven times', () => {
     const container = document.createElement('div');
     document.body.appendChild(container);
     let root: Root | undefined;
@@ -52,9 +60,8 @@ describe('initial application scaffold', () => {
         act(() => lantern?.click());
       });
 
-      expect(container.querySelector('[data-testid="song-library"]')).not.toBeNull();
-      expect(container.textContent).toContain('Songs unlocked.');
-      expect(container.textContent).toContain('Songs unlocked. The hidden library is yours.');
+      expect(container.querySelector('[data-testid="song-library"]')).toBeNull();
+      expect(navigateToPath).toHaveBeenCalledWith('/songs/');
     } finally {
       act(() => root?.unmount());
       container.remove();
