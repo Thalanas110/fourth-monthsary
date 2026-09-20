@@ -23,7 +23,30 @@ export function getSongsPath(basePath = '/') {
   return `${getHomePath(basePath)}songs/`;
 }
 
+export function getSongPath(id: string, basePath = '/') {
+  return `${getSongsPath(basePath)}${encodeURIComponent(id)}`;
+}
+
+export function getSongId(pathname: string, basePath = '/') {
+  const songsPath = getSongsPath(basePath);
+  if (!pathname.startsWith(songsPath)) return null;
+
+  const match = pathname.slice(songsPath.length).match(/^([^/]+)\/?$/);
+  if (!match) return null;
+
+  try {
+    return decodeURIComponent(match[1]);
+  } catch {
+    return null;
+  }
+}
+
 export function isSongsPath(pathname: string, basePath = '/') {
+  const songsPath = getSongsPath(basePath);
+  return pathname === songsPath || pathname === songsPath.slice(0, -1) || pathname.startsWith(songsPath);
+}
+
+export function isSongsIndexPath(pathname: string, basePath = '/') {
   const songsPath = getSongsPath(basePath);
   return pathname === songsPath || pathname === songsPath.slice(0, -1);
 }
