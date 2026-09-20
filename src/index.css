@@ -1656,6 +1656,142 @@ a:focus-visible {
   transform: translateY(-2px);
 }
 
+.song-page-shell {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.song-page-shell .page-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+.song-page {
+  animation: fade-up 0.75s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  margin: 0 auto;
+  max-width: 1240px;
+  padding: 34px 40px 104px;
+  width: 100%;
+}
+.song-page-topline {
+  align-items: center;
+  border-bottom: 1px solid hsl(var(--border) / 0.72);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 19px;
+}
+.song-page-back {
+  align-items: center;
+  color: hsl(var(--muted-foreground));
+  display: inline-flex;
+  font: 10px var(--app-font-mono);
+  gap: 8px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    color 0.2s,
+    gap 0.2s;
+}
+.song-page-back:hover {
+  color: hsl(var(--primary));
+  gap: 11px;
+}
+.song-page-marker {
+  color: hsl(var(--muted-foreground) / 0.68);
+  font: 10px var(--app-font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.song-page-layout {
+  display: grid;
+  gap: clamp(55px, 9vw, 140px);
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+  padding: clamp(62px, 9vw, 118px) clamp(0px, 4vw, 52px) 0;
+}
+.song-page-header {
+  align-self: start;
+  max-width: 460px;
+  padding-top: 7px;
+}
+.song-page-eyebrow {
+  align-items: center;
+  display: flex;
+  gap: 13px;
+}
+.song-page-kind {
+  border: 1px solid hsl(var(--primary) / 0.38);
+  border-radius: 999px;
+  color: hsl(var(--primary));
+  font: 500 9px var(--app-font-mono);
+  letter-spacing: 0.1em;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+.song-page-title {
+  color: hsl(var(--foreground));
+  font: 400 clamp(52px, 6.5vw, 94px) / 0.84 var(--app-font-serif);
+  letter-spacing: -0.065em;
+  margin: 28px 0 27px;
+  max-width: 510px;
+}
+.song-page-excerpt {
+  color: hsl(var(--muted-foreground));
+  font: italic 19px/1.45 var(--app-font-serif);
+  margin: 0;
+  max-width: 390px;
+}
+.song-page-byline {
+  align-items: center;
+  color: hsl(var(--muted-foreground));
+  display: flex;
+  font: 10px var(--app-font-mono);
+  gap: 9px;
+  letter-spacing: 0.03em;
+  margin-top: 35px;
+}
+.song-page-reading-column {
+  border-left: 1px solid hsl(var(--border));
+  max-width: 620px;
+  padding: 7px 0 0 clamp(30px, 5vw, 72px);
+}
+.song-page-rule {
+  background: hsl(var(--primary));
+  height: 1px;
+  margin-bottom: 39px;
+  opacity: 0.7;
+  width: 47px;
+}
+.song-page-audio {
+  background: hsl(var(--card) / 0.55);
+  border: 1px solid hsl(var(--border));
+  margin: 0 0 35px;
+  padding: 18px;
+}
+.song-page-audio audio {
+  accent-color: hsl(var(--primary));
+  display: block;
+  height: 36px;
+  width: 100%;
+}
+.song-page-body {
+  color: hsl(var(--foreground));
+  font: italic clamp(22px, 2.3vw, 31px) / 1.52 var(--app-font-serif);
+  margin: 0;
+  max-width: 510px;
+  white-space: pre-line;
+}
+.song-page-footer {
+  border-top: 1px solid hsl(var(--border));
+  margin-top: 67px;
+  padding-top: 19px;
+}
+.song-page-footer p {
+  color: hsl(var(--muted-foreground));
+  font: italic 15px var(--app-font-serif);
+  margin: 0;
+}
+
 .ritual {
   margin: 0 auto;
   max-width: 1320px;
@@ -2192,6 +2328,44 @@ a:focus-visible {
     align-items: flex-start;
     flex-direction: column;
     gap: 16px;
+    margin-top: 48px;
+  }
+  .song-page {
+    padding: 27px 20px 72px;
+  }
+  .song-page-marker {
+    display: none;
+  }
+  .song-page-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 49px;
+    padding: 55px 0 0;
+  }
+  .song-page-header {
+    padding-top: 0;
+  }
+  .song-page-title {
+    font-size: clamp(52px, 14vw, 82px);
+    margin: 26px 0 23px;
+  }
+  .song-page-excerpt {
+    font-size: 18px;
+  }
+  .song-page-reading-column {
+    border-left: 0;
+    border-top: 1px solid hsl(var(--border));
+    max-width: none;
+    padding: 31px 0 0;
+  }
+  .song-page-rule {
+    margin-bottom: 31px;
+  }
+  .song-page-body {
+    font-size: clamp(24px, 7vw, 30px);
+    line-height: 1.48;
+  }
+  .song-page-footer {
     margin-top: 48px;
   }
   .not-found-page {
