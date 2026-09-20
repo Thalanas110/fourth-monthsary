@@ -1,6 +1,7 @@
 import { createRoot } from 'react-dom/client';
 
 import { ErrorBoundary } from '@/components/errors/error-boundary';
+import { SplashScreen } from '@/components/main/splash-screen';
 import { PageRouter } from '@/pages/page-router';
 
 import './theme.scss';
@@ -13,6 +14,7 @@ createRoot(document.getElementById('root')!, {
   },
 }).render(
   <ErrorBoundary resetKey={window.location.pathname}>
+    <SplashScreen />
     <PageRouter basePath={import.meta.env.BASE_URL} pathname={window.location.pathname} />
   </ErrorBoundary>,
 );
