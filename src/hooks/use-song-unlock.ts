@@ -7,7 +7,7 @@ export const SONG_UNLOCK_WINDOW_MS = 2000;
 export function useSongUnlock() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [progress, setProgress] = useState(0);
-  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const resetTimer = useRef<number | null>(null);
 
   useEffect(() => {
     try {

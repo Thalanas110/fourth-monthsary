@@ -155,6 +155,20 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 
 .library-section { background: linear-gradient(180deg, rgba(29, 20, 38, .88), rgba(27, 18, 35, .76)); backdrop-filter: blur(6px); padding: 90px 40px 110px; position: relative; }
 .library-section::before { background: radial-gradient(circle at 80% 0%, hsl(318 28% 52% / .12), transparent 33%); content: ''; inset: 0; pointer-events: none; position: absolute; }
+.songs-section { background: linear-gradient(180deg, rgba(25, 16, 33, .82), rgba(18, 12, 24, .92)); border-top: 1px solid hsl(var(--border) / .7); padding: 76px 40px 90px; }
+.songs-inner { margin: 0 auto; max-width: 1240px; }
+.songs-header { align-items: end; display: flex; justify-content: space-between; margin-bottom: 35px; }
+.songs-title { color: hsl(var(--foreground)); font: 400 clamp(38px, 5vw, 72px)/.9 var(--app-font-serif); letter-spacing: -.055em; margin: 14px 0 0; }
+.songs-note { color: hsl(var(--muted-foreground)); font: italic 15px/1.5 var(--app-font-serif); margin: 0; max-width: 220px; text-align: right; }
+.songs-empty { border: 1px dashed hsl(var(--border)); color: hsl(var(--muted-foreground)); font: 11px var(--app-font-mono); margin: 0; padding: 27px; }
+.song-grid { display: grid; gap: 17px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.song-card { background: hsl(var(--card) / .66); border: 1px solid hsl(var(--border) / .78); display: flex; flex-direction: column; min-height: 270px; padding: 24px; }
+.song-card-top { align-items: center; display: flex; justify-content: space-between; }
+.song-length { color: hsl(var(--muted-foreground)); font: 10px var(--app-font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.song-title { color: hsl(var(--foreground)); font: 400 34px/.95 var(--app-font-serif); letter-spacing: -.04em; margin: 31px 0 16px; max-width: 400px; }
+.song-excerpt { color: hsl(var(--muted-foreground)); font: italic 15px/1.45 var(--app-font-serif); margin: 0; }
+.song-author { color: hsl(var(--muted-foreground)); font: 10px var(--app-font-mono); margin: auto 0 18px; }
+.song-card audio { accent-color: hsl(var(--primary)); height: 32px; width: 100%; }
 .library-inner { margin: 0 auto; max-width: 1240px; position: relative; }
 .section-head { align-items: end; display: flex; justify-content: space-between; margin-bottom: 37px; }
 .section-title { font: 400 clamp(37px, 5vw, 60px)/.9 var(--app-font-serif); letter-spacing: -.04em; margin: 13px 0 0; }
@@ -313,6 +327,7 @@ button:focus-visible, input:focus-visible, a:focus-visible {
   .library-section { padding: 72px 20px 80px; } .section-head { align-items: start; flex-direction: column; gap: 16px; } .section-note { text-align: left; }
   .toolbar { align-items: stretch; flex-direction: column-reverse; gap: 25px; } .search-box { width: 100%; }
   .poem-grid { display: flex; flex-direction: column; } .poem-card, .poem-card:nth-child(n) { min-height: 270px; }
+  .songs-section { padding: 66px 20px 76px; } .songs-header { align-items: start; flex-direction: column; gap: 17px; } .songs-note { text-align: left; }
   .ritual { padding: 85px 20px 75px; } .ritual-inner { align-items: start; display: flex; flex-direction: column; gap: 46px; } .ritual-copy { padding-left: 19px; }
   .footer { margin: 0 20px; } .reader-overlay { padding: 12px; } .reader-panel { max-height: calc(100dvh - 24px); padding: 44px 24px 32px; }
 }
