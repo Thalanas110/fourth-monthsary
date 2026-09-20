@@ -35,12 +35,11 @@ export default function App() {
     if (poem) show(alreadySaved ? `${poem.title} left your saved poems` : `${poem.title} saved for later`);
   };
   const handleLanternClick = () => {
-    if (isSongsUnlocked) {
-      navigateToPath(getSongsPath(import.meta.env.BASE_URL));
-      return;
-    }
+    const unlockedNow = !isSongsUnlocked && clickLantern();
 
-    clickLantern();
+    if (isSongsUnlocked || unlockedNow) {
+      navigateToPath(getSongsPath(import.meta.env.BASE_URL));
+    }
   };
 
   return (

@@ -38,7 +38,7 @@ describe('initial application scaffold', () => {
     expect(APP_NAME).toBe('Poem Lantern');
   });
 
-  it('enables songs after seven taps and navigates on the next tap', () => {
+  it('navigates after seven taps and reopens songs with one later tap', () => {
     const container = document.createElement('div');
     document.body.appendChild(container);
     let root: Root | undefined;
@@ -62,8 +62,9 @@ describe('initial application scaffold', () => {
 
       expect(container.querySelector('[data-testid="song-library"]')).toBeNull();
       expect(window.localStorage.getItem('poem-lantern:songs-unlocked')).toBe('true');
-      expect(navigateToPath).not.toHaveBeenCalled();
+      expect(navigateToPath).toHaveBeenCalledWith('/songs/');
 
+      vi.mocked(navigateToPath).mockClear();
       act(() => heroLantern?.click());
 
       expect(navigateToPath).toHaveBeenCalledWith('/songs/');
