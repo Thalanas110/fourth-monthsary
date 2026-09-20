@@ -297,7 +297,7 @@ git commit -m "feat: fade and unmount splash after the timed sequence"
 ### Task 3: Splash styling in index.css
 
 **Files:**
-- Modify: `src/index.css` (insert the splash block after the `@keyframes leaf-fall` rule at line 243, before the `@media (max-width: 800px)` block at line 244)
+- Modify: `src/index.css` (insert the splash block after the `.delay-3` rule at line 231, before the `@keyframes fade-up` rule at line 232)
 - Create: `test/styles/splash-screen.test.ts`
 
 **Interfaces:**
@@ -370,7 +370,7 @@ Expected: FAIL — the splash selectors are not yet in `src/index.css`.
 
 - [ ] **Step 3: Add the splash styles**
 
-Append the following block to `src/index.css` immediately after the `@keyframes leaf-fall {...}` rule (line 243) and before `@media (max-width: 800px)`:
+Append the following block to `src/index.css` immediately after the `.delay-3` rule (line 231) and before the `@keyframes fade-up` rule (line 232). Do NOT place it between `@keyframes leaf-fall` and `@media (max-width: 800px)` — the existing `falling-leaves-motion.test.ts` asserts that window contains only the leaf keyframes' compositor-only declarations:
 
 ```css
 .splash-screen { align-items: center; background: hsl(var(--background)); display: grid; inset: 0; opacity: 1; place-items: center; pointer-events: none; position: fixed; transition: opacity 450ms ease; z-index: 40; }
@@ -394,7 +394,7 @@ Append the following block to `src/index.css` immediately after the `@keyframes 
 .splash-leaf:nth-child(4) { --splash-leaf-left: 16%; --splash-leaf-delay: -948ms; --splash-leaf-duration: 1564ms; --splash-leaf-drift: -10vw; --splash-leaf-size: 11px; --splash-leaf-opacity: .35; --splash-leaf-color: #8f4f32; }
 .splash-leaf:nth-child(5) { --splash-leaf-left: 63%; --splash-leaf-delay: -1185ms; --splash-leaf-duration: 1605ms; --splash-leaf-drift: -4vw; --splash-leaf-size: 9px; --splash-leaf-opacity: .45; --splash-leaf-color: #a7663a; }
 .splash-leaf:nth-child(6) { --splash-leaf-left: 22%; --splash-leaf-delay: -1422ms; --splash-leaf-duration: 1646ms; --splash-leaf-drift: 2vw; --splash-leaf-size: 12px; --splash-leaf-opacity: .55; --splash-leaf-color: #b4773d; }
-.splash-leaf:nth-child(7) { --splash-leaf-left: 69%; --splash-leaf-delay: -1599ms; --splash-leaf-duration: 1697ms; --splash-leaf-drift: 8vw; --splash-leaf-size: 10px; --splash-leaf-opacity: .65; --splash-leaf-color: #6e3d2c; }
+.splash-leaf:nth-child(7) { --splash-leaf-left: 69%; --splash-leaf-delay: -59ms; --splash-leaf-duration: 1687ms; --splash-leaf-drift: 8vw; --splash-leaf-size: 10px; --splash-leaf-opacity: .65; --splash-leaf-color: #6e3d2c; }
 .splash-leaf:nth-child(8) { --splash-leaf-left: 28%; --splash-leaf-delay: -296ms; --splash-leaf-duration: 1728ms; --splash-leaf-drift: -9vw; --splash-leaf-size: 13px; --splash-leaf-opacity: .35; --splash-leaf-color: #8f4f32; }
 @keyframes splash-fall {
   0% { opacity: 0; transform: translate3d(0, -18svh, 0) rotate(-14deg); }
