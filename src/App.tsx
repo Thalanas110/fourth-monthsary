@@ -35,8 +35,12 @@ export default function App() {
     if (poem) show(alreadySaved ? `${poem.title} left your saved poems` : `${poem.title} saved for later`);
   };
   const handleLanternClick = () => {
-    const unlockedNow = !isSongsUnlocked && clickLantern();
-    if (unlockedNow) navigateToPath(getSongsPath(import.meta.env.BASE_URL));
+    if (isSongsUnlocked) {
+      navigateToPath(getSongsPath(import.meta.env.BASE_URL));
+      return;
+    }
+
+    clickLantern();
   };
 
   return (
