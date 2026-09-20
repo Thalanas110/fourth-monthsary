@@ -19,6 +19,15 @@ export function getPoemPath(id: string, basePath = '/') {
   return `${getHomePath(basePath)}poems/${encodeURIComponent(id)}`;
 }
 
+export function getSongsPath(basePath = '/') {
+  return `${getHomePath(basePath)}songs/`;
+}
+
+export function isSongsPath(pathname: string, basePath = '/') {
+  const songsPath = getSongsPath(basePath);
+  return pathname === songsPath || pathname === songsPath.slice(0, -1);
+}
+
 export function getPoemId(pathname: string, basePath = '/') {
   const homePath = getHomePath(basePath);
   if (!pathname.startsWith(homePath)) return null;

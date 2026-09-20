@@ -51,3 +51,9 @@ export function navigateToAnchor(href: string) {
     preserveState: true,
   });
 }
+
+export function navigateToPath(href: string) {
+  if (typeof window === 'undefined') return;
+
+  window.location.assign(new URL(href, window.location.href).href);
+}

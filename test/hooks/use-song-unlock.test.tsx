@@ -52,12 +52,19 @@ describe('useSongUnlock', () => {
     expect(result.current.isUnlocked).toBe(false);
     expect(result.current.progress).toBe(0);
 
-    for (let click = 0; click < 7; click += 1) {
-      act(() => result.current.clickLantern());
+    for (let click = 0; click < 6; click += 1) {
+      let unlocked = true;
+      act(() => { unlocked = result.current.clickLantern(); });
+      expect(unlocked).toBe(false);
     }
 
+    let unlocked = false;
+    act(() => { unlocked = result.current.clickLantern(); });
+
+    expect(unlocked).toBe(true);
     expect(result.current.isUnlocked).toBe(true);
     expect(result.current.progress).toBe(7);
+    expect(window.localStorage.getItem('poem-lantern:songs-unlocked')).toBe('true');
     cleanup();
   });
 

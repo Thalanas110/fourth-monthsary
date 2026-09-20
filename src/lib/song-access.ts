@@ -15,6 +15,16 @@ export function readSongUnlockFlag() {
   return readFlag(SONG_UNLOCK_STORAGE_KEY);
 }
 
+export function writeSongUnlockFlag() {
+  if (typeof window === 'undefined') return;
+
+  try {
+    window.localStorage.setItem(SONG_UNLOCK_STORAGE_KEY, 'true');
+  } catch {
+    // Storage is optional; the current session can still continue.
+  }
+}
+
 export function readSongAccessFlag() {
   return readFlag(SONG_ACCESS_STORAGE_KEY);
 }
