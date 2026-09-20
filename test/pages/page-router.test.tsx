@@ -45,4 +45,16 @@ describe('PageRouter', () => {
     expect(markup).toContain('The Waiting Days');
     expect(markup).toContain('data-testid="page-poem"');
   });
+
+  it('renders the songs route shell at the configured path', () => {
+    const markup = renderToStaticMarkup(<PageRouter pathname="/songs/" />);
+
+    expect(markup).toContain('data-testid="page-songs"');
+  });
+
+  it('supports the songs route below a non-root Vite base path', () => {
+    const markup = renderToStaticMarkup(<PageRouter basePath="/monthsary/" pathname="/monthsary/songs/" />);
+
+    expect(markup).toContain('data-testid="page-songs"');
+  });
 });
