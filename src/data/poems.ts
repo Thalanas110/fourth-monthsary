@@ -214,6 +214,69 @@ The answer's simple, deep, and true:
 It's not one thing I miss of you—
 I miss my Madame. All of you.`,
   },
+  {
+    id: 'if-i-could-live-these-three-months-again', title: 'If I Could Live These Three Months Again', author: 'Adriaan M. Dimate', mood: 'Nostalgia', kind: 'poem', length: '3 min read',
+    excerpt: "I'd still find you. I'd still love you. I'd still choose you.",
+    body: `If I could turn the hands of time,
+I'd find the days when you became mine,
+I'd watch our little stars align,
+And fall for you again each time.
+
+I'd read our oldest words once more,
+Remember what we waited for,
+Before we knew what lay in store,
+Or how much love we'd come to store.
+
+I'd keep the nights we laughed away,
+The silly things we'd always say,
+Those little moments from each day,
+That somehow never fade away.
+
+I'd keep each time you called me dear,
+Each moment when you felt so near,
+Each tiny memory from this year,
+I'd hold them all forever here.
+
+But I would keep the harder days,
+The ones that tested us in ways
+We never thought we'd have to face,
+Yet somehow love still found its place.
+
+I'd keep the moments I felt blue,
+Because they showed what I already knew:
+However difficult life grew,
+My heart kept finding home in you.
+
+There were some nights I couldn't sleep,
+Because the things I loved ran deep,
+And promises I chose to keep
+Were worth the nights that made me weep.
+
+There were some days when all I'd do
+Was quietly hope I'd hear from you,
+And when one little message came through,
+My whole world somehow breathed anew.
+
+And maybe that's what makes me cry,
+How quickly all these months went by,
+How much we've carried, you and I,
+Yet neither heart has said goodbye.
+
+One day these months will feel so small,
+Old photographs upon a wall,
+Yet I'll remember through it all,
+How we kept standing after each fall.
+
+And if someday you ask me when
+I'd choose to start our story again,
+I'd take the joy, the fear, the pain,
+And walk those three whole months again.
+
+Because if time returned me to
+The day before I first found you,
+Knowing everything we'd travel through—
+I'd still find you. I'd still love you. I'd still choose you.`,
+  },
 ];
 
 export const moods = ['All feelings', 'Longing', 'Stillness', 'Tenderness', 'Renewal', 'Nostalgia', 'Wonder'];

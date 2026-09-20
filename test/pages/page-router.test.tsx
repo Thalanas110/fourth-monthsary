@@ -11,10 +11,10 @@ describe('PageRouter', () => {
   });
 
   it('renders a complete poem page for a poem pathname', () => {
-    const markup = renderToStaticMarkup(<PageRouter pathname="/poems/blue-hour" />);
+    const markup = renderToStaticMarkup(<PageRouter pathname="/poems/if-i-could-be-there" />);
 
-    expect(markup).toContain('Blue Hour');
-    expect(markup).toContain('The day leaves by the river');
+    expect(markup).toContain('If I Could Be There');
+    expect(markup).toContain('Some nights I stare into the night');
     expect(markup).toContain('data-testid="page-poem"');
     expect(markup).not.toContain('dialog-poem-reader');
   });
@@ -40,9 +40,9 @@ describe('PageRouter', () => {
   });
 
   it('supports poem pages below a non-root Vite base path', () => {
-    const markup = renderToStaticMarkup(<PageRouter basePath="/monthsary/" pathname="/monthsary/poems/night-bloom" />);
+    const markup = renderToStaticMarkup(<PageRouter basePath="/monthsary/" pathname="/monthsary/poems/the-waiting-days" />);
 
-    expect(markup).toContain('Night Bloom');
+    expect(markup).toContain('The Waiting Days');
     expect(markup).toContain('data-testid="page-poem"');
   });
 });
