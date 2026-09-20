@@ -1,5 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
+import { songs } from '@/data/songs';
 import { PageRouter } from '@/pages/page-router';
 
 describe('PageRouter', () => {
@@ -56,5 +57,12 @@ describe('PageRouter', () => {
     const markup = renderToStaticMarkup(<PageRouter basePath="/monthsary/" pathname="/monthsary/songs/" />);
 
     expect(markup).toContain('data-testid="page-songs"');
+  });
+
+  it('routes a known song id to the song detail shell', () => {
+    const markup = renderToStaticMarkup(<PageRouter pathname={`/songs/${songs[0].id}`} />);
+
+    expect(markup).toContain('song-page-shell');
+    expect(markup).not.toContain('data-testid="page-songs"');
   });
 });

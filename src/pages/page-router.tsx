@@ -1,7 +1,9 @@
 import App from '@/App';
 import PoemPage from '@/components/poems/poem-page';
 import { poems } from '@/data/poems';
-import { getPoemId, isHomePath, isSongsPath } from '@/lib/routes';
+import { songs } from '@/data/songs';
+import SongPage from '@/pages/song-page';
+import { getPoemId, getSongId, isHomePath, isSongsIndexPath, isSongsPath } from '@/lib/routes';
 import NotFound from '@/pages/not-found';
 import SongsPage from '@/pages/songs-page';
 
@@ -11,7 +13,12 @@ export interface PageRouterProps {
 }
 
 export function PageRouter({ basePath = '/', pathname }: PageRouterProps) {
-  if (isSongsPath(pathname, basePath)) return <SongsPage basePath={basePath} />;
+  if (isSongsPath(pathname, basePath)) {
+    if (isSongsIndexPath(pathname, basePath)) return <SongsPage basePath={basePath} />;
+
+    const songId = getSongId(pathname, basePath);
+    return <SongPage basePath={basePath} song={songs.find((item) => item.id === songId)} />;
+  }
 
   const poemId = getPoemId(pathname, basePath);
   if (poemId) {
