@@ -5,6 +5,7 @@ const componentsRoot = new URL('../../src/components/', import.meta.url);
 const componentMap = {
   errors: ['error-boundary.tsx'],
   main: ['ambient-field.tsx', 'hero-section.tsx', 'lantern-button.tsx', 'ritual-section.tsx', 'site-header.tsx'],
+  songs: ['song-library.tsx'],
   poems: ['empty-results.tsx', 'mood-filter.tsx', 'poem-card.tsx', 'poem-library.tsx', 'poem-page.tsx', 'poem-reader.tsx', 'poem-search.tsx'],
 } as const;
 
