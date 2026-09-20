@@ -229,6 +229,39 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .reader-action:hover, .reader-action.is-favorite { color: hsl(var(--primary)); } .reader-action svg { height: 15px; width: 15px; }
 .toast-message { animation: toast-in .35s ease both; background: hsl(var(--primary)); bottom: 24px; box-shadow: var(--shadow-md); color: hsl(var(--primary-foreground)); font: 11px var(--app-font-mono); left: 50%; padding: 13px 17px; position: fixed; transform: translateX(-50%); z-index: 30; }
 .fade-in { animation: fade-up .75s cubic-bezier(.2,.8,.2,1) both; } .hero-rule.fade-in { animation: drift 2.8s ease-in-out infinite; } .delay-1 { animation-delay: .12s; } .delay-2 { animation-delay: .24s; } .delay-3 { animation-delay: .36s; }
+.splash-screen { align-items: center; background: hsl(var(--background)); display: grid; inset: 0; opacity: 1; place-items: center; pointer-events: none; position: fixed; transition: opacity 450ms ease; z-index: 40; }
+.splash-screen--hiding { opacity: 0; }
+.splash-leaf-set { inset: 0; overflow: hidden; pointer-events: none; position: absolute; }
+.splash-board { align-items: center; display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 1; }
+.splash-glow { animation: splash-glow-bloom 1800ms ease-out both; background: radial-gradient(circle, hsl(var(--primary) / .14), transparent 62%); height: 320px; left: 50%; opacity: 0; position: absolute; top: 46%; transform: translate(-50%, -50%) scale(.55); width: 320px; }
+.splash-lantern { background: linear-gradient(145deg, hsl(var(--foreground) / .05), hsl(var(--background) / .42)); border: 1px solid hsl(var(--foreground) / .4); border-radius: 49% 49% 38% 38% / 26% 26% 68% 68%; box-shadow: 0 0 0 11px hsl(var(--foreground) / .02), 0 0 54px hsl(var(--primary) / .12); height: min(30vw, 112px); position: relative; width: min(25vw, 94px); }
+.splash-lantern::before, .splash-lantern::after { background: hsl(var(--foreground) / .35); content: ''; height: 1px; left: 50%; position: absolute; transform: translateX(-50%); width: 70%; }
+.splash-lantern::before { top: 30%; }
+.splash-lantern::after { bottom: 30%; }
+.splash-lantern-cap { border: 1px solid hsl(var(--foreground) / .4); border-bottom: 0; border-radius: 50% 50% 0 0; height: 14px; left: 50%; position: absolute; top: -9px; transform: translateX(-50%); width: 34px; }
+.splash-flame { animation: splash-flame-flicker 900ms ease-in-out infinite; background: hsl(var(--primary)); border-radius: 52% 48% 48% 48%; box-shadow: 0 0 22px 8px hsl(var(--primary) / .32); clip-path: polygon(50% 0%, 77% 31%, 100% 59%, 88% 83%, 64% 100%, 34% 93%, 8% 70%, 0 46%, 27% 25%); height: 28px; left: 50%; position: absolute; top: 6%; transform: translateX(-50%); width: 15px; }
+.splash-kicker { align-items: center; color: hsl(var(--primary)); display: flex; font: 500 10px var(--app-font-mono); gap: 12px; letter-spacing: .2em; margin: 0; text-transform: uppercase; }
+.splash-kicker::before, .splash-kicker::after { background: hsl(var(--primary)); content: ''; height: 1px; width: 31px; }
+.splash-title { color: hsl(var(--foreground)); font: 400 clamp(34px, 5.5vw, 56px)/.95 var(--app-font-serif); letter-spacing: -.045em; margin: 0; }
+.splash-leaf { animation: splash-fall var(--splash-leaf-duration) linear var(--splash-leaf-delay) infinite; background: var(--splash-leaf-color); border-radius: 75% 12% 75% 12%; clip-path: polygon(50% 0%, 91% 23%, 84% 66%, 50% 100%, 16% 66%, 9% 23%); contain: layout paint; height: var(--splash-leaf-size); left: var(--splash-leaf-left); opacity: 0; position: absolute; top: 0; width: var(--splash-leaf-size); will-change: opacity, transform; }
+.splash-leaf:nth-child(1) { --splash-leaf-left: 51%; --splash-leaf-delay: -237ms; --splash-leaf-duration: 1441ms; --splash-leaf-drift: -5vw; --splash-leaf-size: 12px; --splash-leaf-opacity: .45; --splash-leaf-color: #a7663a; }
+.splash-leaf:nth-child(2) { --splash-leaf-left: 10%; --splash-leaf-delay: -474ms; --splash-leaf-duration: 1482ms; --splash-leaf-drift: 1vw; --splash-leaf-size: 10px; --splash-leaf-opacity: .55; --splash-leaf-color: #b4773d; }
+.splash-leaf:nth-child(3) { --splash-leaf-left: 57%; --splash-leaf-delay: -711ms; --splash-leaf-duration: 1523ms; --splash-leaf-drift: 7vw; --splash-leaf-size: 13px; --splash-leaf-opacity: .65; --splash-leaf-color: #6e3d2c; }
+.splash-leaf:nth-child(4) { --splash-leaf-left: 16%; --splash-leaf-delay: -948ms; --splash-leaf-duration: 1564ms; --splash-leaf-drift: -10vw; --splash-leaf-size: 11px; --splash-leaf-opacity: .35; --splash-leaf-color: #8f4f32; }
+.splash-leaf:nth-child(5) { --splash-leaf-left: 63%; --splash-leaf-delay: -1185ms; --splash-leaf-duration: 1605ms; --splash-leaf-drift: -4vw; --splash-leaf-size: 9px; --splash-leaf-opacity: .45; --splash-leaf-color: #a7663a; }
+.splash-leaf:nth-child(6) { --splash-leaf-left: 22%; --splash-leaf-delay: -1422ms; --splash-leaf-duration: 1646ms; --splash-leaf-drift: 2vw; --splash-leaf-size: 12px; --splash-leaf-opacity: .55; --splash-leaf-color: #b4773d; }
+.splash-leaf:nth-child(7) { --splash-leaf-left: 69%; --splash-leaf-delay: -59ms; --splash-leaf-duration: 1687ms; --splash-leaf-drift: 8vw; --splash-leaf-size: 10px; --splash-leaf-opacity: .65; --splash-leaf-color: #6e3d2c; }
+.splash-leaf:nth-child(8) { --splash-leaf-left: 28%; --splash-leaf-delay: -296ms; --splash-leaf-duration: 1728ms; --splash-leaf-drift: -9vw; --splash-leaf-size: 13px; --splash-leaf-opacity: .35; --splash-leaf-color: #8f4f32; }
+@keyframes splash-fall {
+  0% { opacity: 0; transform: translate3d(0, -18svh, 0) rotate(-14deg); }
+  10% { opacity: var(--splash-leaf-opacity); transform: translate3d(calc(var(--splash-leaf-drift) * .1), 10svh, 0) rotate(16deg); }
+  30% { opacity: var(--splash-leaf-opacity); transform: translate3d(calc(var(--splash-leaf-drift) * .32), 30svh, 0) rotate(52deg); }
+  55% { opacity: var(--splash-leaf-opacity); transform: translate3d(calc(var(--splash-leaf-drift) * .6), 55svh, 0) rotate(96deg); }
+  80% { opacity: var(--splash-leaf-opacity); transform: translate3d(calc(var(--splash-leaf-drift) * .92), 82svh, 0) rotate(148deg); }
+  100% { opacity: 0; transform: translate3d(var(--splash-leaf-drift), calc(100svh + 18svh), 0) rotate(212deg); }
+}
+@keyframes splash-flame-flicker { 0%, 100% { opacity: .82; transform: translateX(-50%) scale(1); } 50% { opacity: 1; transform: translateX(-50%) scale(1.12); } }
+@keyframes splash-glow-bloom { from { opacity: 0; transform: translate(-50%, -50%) scale(.55); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
 @keyframes fade-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 14px); } to { opacity: 1; transform: translate(-50%, 0); } }
 @keyframes drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
