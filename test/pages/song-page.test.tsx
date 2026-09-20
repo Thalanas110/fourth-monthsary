@@ -85,6 +85,8 @@ describe('SongPage', () => {
     expect(container.textContent).toContain(songs[0].title);
     expect(container.querySelector('audio')).not.toBeNull();
     expect(container.querySelector('audio')?.getAttribute('aria-label')).toBe(`Play ${songs[0].title}`);
+    expect(container.querySelector('[data-testid="text-song-body"]')?.textContent)
+      .toContain('The room was quieter than I imagined,');
     cleanup();
   });
 

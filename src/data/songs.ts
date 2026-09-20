@@ -18,6 +18,129 @@ export const songs: Song[] = [{
     duration: 0,
     length: 'Local audio',
     excerpt: 'A song waiting behind the lantern.',
-    body: '',
+    body: `Verse 1
+
+The room was quieter than I imagined,
+Morning pouring through the glass.
+My hands were shaking at the altar,
+While ten long years went rushing past.
+
+I thought about the nights we waited,
+Every mile we couldn't cross,
+Every time we held on tighter
+When we were terrified of loss.
+
+Pre-Chorus
+
+Then everybody slowly faded,
+Every sound became so small.
+Because somewhere beyond the doorway,
+There you were-
+
+And that was all.
+
+Chorus
+
+And you walked down the aisle toward me,
+And I forgot how to breathe.
+There were tears already falling
+Before you ever reached me.
+
+And after all those years of waiting,
+You took my trembling hand in yours.
+I whispered, "Madame, we made it."
+Like I'd waited my whole life for those words.
+
+Verse 2
+
+I saw the years inside your eyes then,
+Not the numbers-just the days.
+All the laughter we'd collected,
+All the storms that couldn't stay.
+
+I remembered being younger,
+Making promises through a screen,
+Talking about some distant future
+We were far too young to see.
+
+Pre-Chorus 2
+
+But suddenly that distant future
+Was standing inches from my face.
+And every road we'd ever taken
+Had somehow led us to this place.
+
+Chorus 2
+
+And you stood at the altar with me,
+While I struggled just to speak.
+You were laughing through your crying;
+I was crying through my cheeks.
+
+And when they asked me for my answer,
+There was nothing left to prove.
+I'd been answering for years already
+Every time I chose to love you.
+
+Bridge
+
+I don't remember all the flowers.
+I don't remember what they played.
+I don't remember who was watching,
+Or every promise that we made.
+
+But I remember how you looked at me
+Like we'd finally reached the shore.
+And I remember thinking quietly:
+
+"I don't have to miss you anymore."
+
+Final Chorus
+
+So we walked from the aisle together,
+Your fingers woven into mine.
+And all those years that stood between us
+Were finally left behind.
+
+You leaned your head against my shoulder.
+I kissed your forehead like before.
+And whispered, "Welcome home, my Madame."
+
+"We don't have to wait anymore."
+
+Outro
+
+Then morning came through my window.
+
+And there was no aisle.
+
+No flowers.
+
+No ring upon your hand.
+
+Just my room,
+my piano,
+and your name still sitting softly
+inside my heart.
+
+For a moment,
+I almost cried
+because it wasn't real.
+
+But maybe dreams aren't always there
+to show us things we've lost.
+
+Maybe sometimes
+they show us where we're going.
+
+So I'll get up.
+
+I'll finish growing.
+
+You'll chase the life that's waiting for you.
+
+And we'll take all the time we need
+to become the people
+who can finally live that morning.`,
     audioSrc: aisleSong,
 }];
