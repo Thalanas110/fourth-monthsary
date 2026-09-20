@@ -17,7 +17,6 @@ export default function PoemPage({ basePath = import.meta.env.BASE_URL, poem }: 
   const { favoriteIds, toggleFavorite } = useFavoritePoems();
   const { message, show } = useToastMessage();
   const isFavorite = favoriteIds.includes(poem.id);
-  const isSong = poem.kind === 'song';
   const handleToggleFavorite = () => {
     toggleFavorite(poem.id);
     show(isFavorite ? `${poem.title} left your saved poems` : `${poem.title} saved for later`);
@@ -32,7 +31,7 @@ export default function PoemPage({ basePath = import.meta.env.BASE_URL, poem }: 
       <div aria-hidden="true" className="grain" />
       <div className="page-content">
         <SiteHeader favoriteCount={favoriteIds.length} homePath={basePath} />
-        <article className="poem-page" data-piece-kind={poem.kind} data-testid="page-poem">
+        <article className="poem-page" data-testid="page-poem">
           <div className="poem-page-topline">
             <a className="poem-page-back" href={getLibraryPath(basePath)}>
               <ArrowLeft aria-hidden="true" size={14} />
@@ -45,7 +44,7 @@ export default function PoemPage({ basePath = import.meta.env.BASE_URL, poem }: 
             <header className="poem-page-header">
               <div className="poem-page-eyebrow">
                 <span className="eyebrow">{poem.mood}</span>
-                <span className="poem-page-kind">{isSong ? 'Song' : 'Poem'}</span>
+                <span className="poem-page-kind">Poem</span>
               </div>
               <h1 className="poem-page-title">{poem.title}</h1>
               <p className="poem-page-excerpt">{poem.excerpt}</p>
@@ -60,7 +59,7 @@ export default function PoemPage({ basePath = import.meta.env.BASE_URL, poem }: 
               <div aria-hidden="true" className="poem-page-rule" />
               <p className="poem-page-body" data-testid="text-poem-body">{poem.body}</p>
               <footer className="poem-page-footer">
-                <p>{isSong ? 'Keep the melody close.' : 'Keep the line that found you.'}</p>
+                <p>Keep the line that found you.</p>
                 <button
                   aria-pressed={isFavorite}
                   className={`poem-page-save ${isFavorite ? 'is-favorite' : ''}`}

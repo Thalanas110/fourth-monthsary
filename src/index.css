@@ -162,7 +162,6 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .card-tools { align-items: center; display: flex; gap: 12px; }
 .card-mood { color: hsl(var(--primary)); font: 10px var(--app-font-mono); letter-spacing: .12em; text-transform: uppercase; }
 .piece-kind { border: 1px solid hsl(var(--primary) / .38); border-radius: 999px; color: hsl(var(--primary)); font: 500 9px var(--app-font-mono); letter-spacing: .1em; padding: 5px 8px; text-transform: uppercase; }
-.poem-card.is-song { background: linear-gradient(145deg, hsl(340 24% 20%), hsl(var(--card))); border-color: hsl(var(--primary) / .32); }
 .favorite-button { background: transparent; border: 0; color: hsl(var(--muted-foreground)); padding: 0; transition: color .2s, transform .2s; }
 .favorite-button:hover, .favorite-button.is-favorite { color: hsl(var(--primary)); } .favorite-button:hover { transform: scale(1.12); }
 .favorite-button svg { height: 17px; width: 17px; }
@@ -198,7 +197,6 @@ button:focus-visible, input:focus-visible, a:focus-visible {
 .poem-page-eyebrow { align-items: center; display: flex; gap: 13px; }
 .poem-page-eyebrow .eyebrow { margin: 0; }
 .poem-page-kind { border: 1px solid hsl(var(--primary) / .38); border-radius: 999px; color: hsl(var(--primary)); font: 500 9px var(--app-font-mono); letter-spacing: .1em; padding: 5px 8px; text-transform: uppercase; }
-.poem-page[data-piece-kind='song'] .poem-page-kind { border-color: hsl(var(--accent) / .58); color: hsl(var(--accent)); }
 .poem-page-title { color: hsl(var(--foreground)); font: 400 clamp(58px, 7.2vw, 102px)/.84 var(--app-font-serif); letter-spacing: -.065em; margin: 28px 0 27px; max-width: 510px; }
 .poem-page-excerpt { color: hsl(var(--muted-foreground)); font: italic 19px/1.45 var(--app-font-serif); margin: 0; max-width: 390px; }
 .poem-page-byline { align-items: center; color: hsl(var(--muted-foreground)); display: flex; font: 10px var(--app-font-mono); gap: 9px; letter-spacing: .03em; margin-top: 35px; }
