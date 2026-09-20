@@ -215,7 +215,12 @@ It's not one thing I miss of you—
 I miss my Madame. All of you.`,
   },
   {
-    id: 'if-i-could-live-these-three-months-again', title: 'If I Could Live These Three Months Again', author: 'Adriaan M. Dimate', mood: 'Nostalgia', kind: 'poem', length: '3 min read',
+    id: 'if-i-could-live-these-three-months-again', 
+    title: 'If I Could Live These Three Months Again', 
+    author: 'Adriaan M. Dimate', 
+    mood: 'Nostalgia', 
+    kind: 'poem', 
+    length: '3 min read',
     excerpt: "I'd still find you. I'd still love you. I'd still choose you.",
     body: `If I could turn the hands of time,
 I'd find the days when you became mine,
@@ -276,6 +281,142 @@ Because if time returned me to
 The day before I first found you,
 Knowing everything we'd travel through—
 I'd still find you. I'd still love you. I'd still choose you.`,
+  },
+  {
+    id: 'when-i-finally-get-to-hold-you', 
+    title: 'When I Finally Get to Hold You', 
+    author: 'Adriaan M. Dimate', 
+    mood: 'Longing', 
+    kind: 'poem', 
+    length: '3 min read',
+    excerpt: "Madame… I'm finally holding you at last.",
+    body: `I've dreamed about that coming day,
+When distance finally fades away,
+When I don't need a screen to say,
+"I love you, Madame—please just stay."
+
+I'll finally see those eyes so bright,
+No photograph, no screen, no light,
+Just you before my very sight,
+And everything will feel so right.
+
+I wonder what I'll even do,
+The moment I am there with you,
+Perhaps I'll cry before I knew,
+How much these months had put me through.
+
+And when I finally hold you near,
+I'll carry every silent tear,
+Each time I wished that you were here,
+Each night I whispered, "Please be near."
+
+You'll feel my arms around you tight,
+But you won't see each waiting night,
+Each time your name became my light,
+When everything did not feel right.
+
+You'll think it's just a warm embrace,
+My arms around your gentle face,
+But I'll be holding every trace,
+Of all the months we couldn't replace.
+
+I'll hold the laughs we used to share,
+The little jokes from here and there,
+The countless times I wished your hair
+Were underneath my fingers there.
+
+I'll hold each message that came through,
+Each little "I love you" from you,
+Each dream we somehow slowly grew,
+And every storm we wandered through.
+
+Perhaps I'll say no words at all,
+Perhaps I'll simply let them fall,
+The tears I've carried through it all,
+While finally hearing your heart call.
+
+And maybe you'll just laugh at me,
+And ask why I'm as weak as can be,
+But, Madame, then perhaps you'll see,
+What holding you would mean to me.
+
+For you may think I'm holding you,
+But I'll hold everything we've been through,
+Three months of dreams and waiting too,
+And every future I dream with you.
+
+So when that day arrives at last,
+I'll hold you close and breathe out fast,
+And whisper while remembering our past:
+"Madame… I'm finally holding you at last."`,
+  },
+  {
+    id: 'you-became-my-home', 
+    title: 'You Became My Home', 
+    author: 'Adriaan M. Dimate', 
+    mood: 'Tenderness', 
+    kind: 'poem', 
+    length: '3 min read',
+    excerpt: 'I found my home the day I found you, Madame.',
+    body: `I used to think that home was a place,
+Four quiet walls, a familiar space,
+A door I'd open, a room I'd embrace,
+Until I found home within your grace.
+
+It happened slowly, day by day,
+Inside the little things you'd say,
+The laughs and jokes we'd throw away,
+Until they somehow learned to stay.
+
+Your voice became a gentle sound,
+That made the noisy world calm down,
+And when my thoughts would spin around,
+Your presence brought me safer ground.
+
+Your messages became my light,
+A little warmth throughout the night,
+One simple word could make things bright,
+And somehow everything felt right.
+
+It wasn't something that I planned,
+Or something I could understand,
+But slowly, when you held my hand,
+My heart discovered where to land.
+
+I learned your laughter, soft and sweet,
+The little things that made you complete,
+The way my heart would skip a beat,
+Whenever somehow our worlds would meet.
+
+And even when you're far away,
+Some part of you still seems to stay,
+Inside the memories of each day,
+And all the silly things we'd say.
+
+We've seen some skies turn cold and gray,
+We've watched some easy roads give way,
+Yet somehow after every day,
+My heart still wandered back your way.
+
+And someday when I'm by your side,
+With nowhere left our hearts must hide,
+I'll look at everything we've tried,
+And smile because we made the ride.
+
+I don't need castles reaching high,
+Or perfect stars across the sky,
+Just mornings waking by your side,
+And evenings knowing you're nearby.
+
+Because a home is more than stone,
+More than a place that you can own,
+It's where your heart is fully known,
+And where you never feel alone.
+
+I spent my life believing home
+Was somewhere in this world I'd roam,
+Then somehow, without even knowing—
+I found my home the day I found you, Madame.`,
   },
 ];
 
