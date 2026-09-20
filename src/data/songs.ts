@@ -1,4 +1,5 @@
 import aisleSong from '@/assets/audios/I Saw You at the End of the Aisle.mp3';
+import ifYouCouldSeeSong from '@/assets/audios/If You Could See What I See.mp3';
 
 export type Song = {
     id: string;
@@ -148,7 +149,7 @@ who can finally live that morning.`,
     title: 'If You Could See What I See',
     author: 'Adriaan M. Dimate',
     duration: 0,
-    length: 'Lyrics only',
+    length: 'Local audio',
     excerpt: 'A song about lending kinder eyes to the person you love.',
     body: `Verse 1
 
@@ -231,4 +232,5 @@ the girl I've been falling in love with.
 And maybe, Madame-
 
 you'd love her too.`,
+    audioSrc: ifYouCouldSeeSong,
 }];
