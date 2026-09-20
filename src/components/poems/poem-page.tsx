@@ -6,6 +6,7 @@ import type { Poem } from '@/data/poems';
 import { useFavoritePoems } from '@/hooks/use-favorite-poems';
 import { useToastMessage } from '@/hooks/use-toast-message';
 import { getLibraryPath } from '@/lib/routes';
+import { FallingLeaves } from '@/components/main/falling-leaves';
 
 export interface PoemPageProps {
   poem: Poem;
@@ -24,6 +25,7 @@ export default function PoemPage({ basePath = import.meta.env.BASE_URL, poem }: 
 
   return (
     <main className="app-shell poem-page-shell" id="top">
+      <FallingLeaves />
       <img alt="" aria-hidden="true" className="site-background" src={sceneImage} />
       <div aria-hidden="true" className="background-veil" />
       <AmbientField />
