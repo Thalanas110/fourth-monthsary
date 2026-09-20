@@ -11,130 +11,12 @@ export type Poem = {
 
 export const poems: Poem[] = [
   {
-    id: 'blue-hour', title: 'Blue Hour', author: 'Mara Ellison', mood: 'Longing', kind: 'poem', length: '2 min read',
-    excerpt: 'The day leaves by the river, carrying all the words we did not say.',
-    body: `The day leaves by the river,
-carrying all the words
-we did not say.
-
-I watch the water turn them over—
-small silver things,
-still warm from the mouth.
-
-By morning, perhaps,
-they will have found a shore
-where someone is listening.`,
-  },
-  {
-    id: 'the-last-light', title: 'The Last Light', author: 'Jonas Wren', mood: 'Stillness', kind: 'poem', length: '3 min read',
-    excerpt: 'At the edge of the evening, even the windows seem to be holding their breath.',
-    body: `At the edge of the evening,
-the windows hold their breath.
-
-One by one, the rooms
-let go of their small suns.
-One by one, the street
-becomes a thought.
-
-Stay here a moment.
-There is nothing to solve
-in the softening world.`,
-  },
-  {
-    id: 'small-weather', title: 'Small Weather', author: 'Nia Okafor', mood: 'Tenderness', kind: 'poem', length: '2 min read',
-    excerpt: 'You bring the rain in on your shoulders. I make a place for it beside me.',
-    body: `You bring the rain in
-on your shoulders.
-
-I make a place for it
-beside me,
-under the yellow lamp.
-
-Outside, the city keeps
-its appointment with the dark.
-Inside, we are learning
-the weather of one another.`,
-  },
-  {
-    id: 'after-the-rain', title: 'After the Rain', author: 'Theo Bell', mood: 'Renewal', kind: 'poem', length: '2 min read',
-    excerpt: 'Puddles keep the sky a little longer than the sky knows how to stay.',
-    body: `Puddles keep the sky
-a little longer
-than the sky knows how to stay.
-
-The pavement shines
-with borrowed color.
-Even the tired trees
-have begun again—
-quietly, without asking
-to be noticed.`,
-  },
-  {
-    id: 'postcard-home', title: 'Postcard Home', author: 'Lena Vale', mood: 'Nostalgia', kind: 'poem', length: '3 min read',
-    excerpt: 'I kept the evening in my pocket, folded twice, for the train ride home.',
-    body: `I kept the evening
-in my pocket,
-folded twice,
-for the train ride home.
-
-The river was a ribbon.
-The houses were lit
-like promises.
-
-I did not know
-that missing a place
-could feel so much
-like loving it.`,
-  },
-  {
-    id: 'night-bloom', title: 'Night Bloom', author: 'Ari Santos', mood: 'Wonder', kind: 'poem', length: '2 min read',
-    excerpt: 'Some things only open when the world has stopped looking for them.',
-    body: `Some things only open
-when the world has stopped
-looking for them.
-
-A flower in the dark.
-A door left unlatched.
-Your hand, finding mine
-without the light.
-
-The night is not empty.
-It is making room.`,
-  },
-  {
-    id: 'under-the-same-moon', title: 'Under the Same Moon', author: 'The Lanterns', mood: 'Warmth', kind: 'song', length: '3:42',
-    excerpt: 'A little melody for the nights when distance feels softer than usual.',
-    body: `A little melody
-for the nights
-when distance feels softer.
-
-The same moon,
-the same quiet,
-and your name in the room.`,
-  },
-  {
-    id: 'slow-dancing-in-the-kitchen', title: 'Slow Dancing in the Kitchen', author: 'June & August', mood: 'Devotion', kind: 'song', length: '4:08',
-    excerpt: 'For ordinary rooms that become our favorite places by staying together.',
-    body: `For ordinary rooms
-that become our favorite places.
-
-No music necessary,
-just your hand in mine
-and the evening taking its time.`,
-  },
-  {
-    id: 'wish-you-were-here', title: 'Wish You Were Here', author: 'Mira Sol', mood: 'Hope', kind: 'poem', length: '2 min read',
-    excerpt: 'Every small light in the city knows a little something about wanting.',
-    body: `Every small light in the city
-knows a little something
-about wanting.
-
-I leave one on for you,
-in case the dark
-needs a direction home.`,
-  },
-  {
-    id: 'if-i-could-be-there', title: 'If I Could Be There', author: 'Adriaan M. Dimate', mood: 'Longing', kind: 'poem', length: '3 min read',
+    id: 'if-i-could-be-there', 
+    title: 'If I Could Be There', 
+    author: 'Adriaan M. Dimate', 
+    mood: 'Longing', 
+    kind: 'poem', 
+    length: '3 min read',
     excerpt: 'A thousand dreams may yet come true, but most of all—I just want you.',
     body: `Some nights I stare into the night,
 And wonder if you're doing right;
@@ -195,6 +77,132 @@ So please be safe tonight, my dear,
 Until the day I can be near;
 A thousand dreams may yet come true,
 But most of all—I just want you.`,
+  },
+  {
+    id: 'the-waiting-days', title: 'The Waiting Days', author: 'Adriaan M. Dimate', mood: 'Longing', kind: 'poem', length: '4 min read',
+    excerpt: 'One little light will always stay, still waiting for you—come what may.',
+    body: `There came a night devoid of light,
+I searched for you with all my might,
+I told myself you'd be all right,
+Yet still I worried through the night.
+
+Each morning brought another day,
+I hoped somehow you'd find a way,
+And though I had so much to say,
+I kept my faith and chose to stay.
+
+I never knew how silence grew,
+Until the world went still with you,
+Yet every promise I once knew,
+Became the thread that pulled me through.
+
+I kept the words I couldn't send,
+Believing silence had an end,
+And even if the years should bend,
+I'd wait for you, my love, my friend.
+
+I thought about your precious smile,
+The one that makes each day worthwhile,
+And wished that I could cross each mile,
+To sit beside you for a while.
+
+I dreamed of holding you so near,
+And whispering softly, "I'm right here,"
+To wipe away each falling tear,
+And make the whole wide world disappear.
+
+I wished your head were on my chest,
+Where for a while your heart could rest,
+I'd hold you close and do my best,
+To make you feel forever blessed.
+
+And if the seasons came and went,
+If every year were somehow spent,
+My heart would know what waiting meant,
+For loving you was my intent.
+
+What hurt was not the passing years,
+Nor lonely nights or hidden tears,
+But all the dreams beneath my fears,
+That might have vanished through the years.
+
+The mornings we had yet to see,
+The places where we'd someday be,
+The simple life of you and me,
+The future where our hearts were free.
+
+Then from the silence came your voice,
+And suddenly my heart rejoiced,
+Of every gift I could have choice,
+I'd choose you still with one clear voice.
+
+So should the world grow dark someday,
+And once again you're far away,
+One little light will always stay,
+Still waiting for you—come what may.`,
+  },
+  {
+    id: 'everything-i-miss-about-you', title: 'Everything I Miss About You', author: 'Adriaan M. Dimate', mood: 'Longing', kind: 'poem', length: '3 min read',
+    excerpt: "It's not one thing I miss of you—I miss my Madame. All of you.",
+    body: `I miss your voice when ends the day,
+I miss the little things you say,
+I miss you more than words convey,
+And wish these miles would melt away.
+
+I miss the laughter that you bring,
+The joy you somehow give each thing,
+The way one message makes me sing,
+Like suddenly the world found spring.
+
+I miss your smile, so warm and bright,
+The one that makes my burdens light,
+The one I'd gladly cross each night,
+Just for the chance to see that sight.
+
+I miss the stories that you share,
+The little moments here and there,
+The thought of running through your hair,
+While quietly holding you with care.
+
+I miss your sleepy, gentle tone,
+The one I wish I'd always known,
+Because whenever I'm alone,
+I wish your voice could reach my phone.
+
+I miss the way you make me smile,
+Even separated by each mile,
+I'd walk them all in single file,
+If you were waiting at the final aisle.
+
+I miss the things we've yet to do,
+The places I would go with you,
+The skies we'd watch turn gold to blue,
+And ordinary mornings too.
+
+I miss the hugs we've yet to make,
+The quiet walks we'd someday take,
+The little memories we would make,
+And every sunrise we'd awake.
+
+I miss the future we could see,
+The simple thought of you and me,
+No grander place I'd rather be,
+Than somewhere we can simply be.
+
+I miss you when the stars appear above,
+I miss you with a quiet kind of love,
+The kind no distance could dispose of,
+As constant as the endless skies above.
+
+And maybe someday you'll be near,
+No screen between us, crystal clear,
+I'll finally whisper in your ear,
+"I missed you more than you could hear."
+
+So when you ask what I miss too,
+The answer's simple, deep, and true:
+It's not one thing I miss of you—
+I miss my Madame. All of you.`,
   },
 ];
 

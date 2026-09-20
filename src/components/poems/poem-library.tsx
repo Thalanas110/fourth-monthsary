@@ -24,8 +24,8 @@ export function PoemLibrary({ basePath = import.meta.env.BASE_URL, poems, moods,
     <section className="library-section" id="library" aria-labelledby="library-title">
       <div className="library-inner">
         <div className="section-head">
-          <div><div className="eyebrow">The lantern room &middot; 10 pieces</div><h2 className="section-title" id="library-title">What are you carrying?</h2></div>
-          <p className="section-note">Eight poems. Two songs.<br />Take the one that glows.</p>
+          <div><div className="eyebrow">The lantern room &middot; 12 pieces</div><h2 className="section-title" id="library-title">What are you carrying?</h2></div>
+          <p className="section-note">Ten poems. Two songs.<br />Take the one that glows.</p>
         </div>
         <div className="toolbar">
           <MoodFilter moods={moods} onSelect={onMoodChange} selectedMood={selectedMood} />

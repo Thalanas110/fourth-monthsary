@@ -2,13 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { moods, poems } from '@/data/poems';
 
 describe('poem catalog', () => {
-  it('contains ten pieces across seven feeling options', () => {
-    expect(poems).toHaveLength(10);
+  it('contains twelve pieces across seven feeling options', () => {
+    expect(poems).toHaveLength(12);
     expect(moods).toHaveLength(7);
     expect(poems.filter((poem) => poem.kind === 'song')).toHaveLength(2);
     expect(poems.map((poem) => poem.id)).toEqual([
       'blue-hour', 'the-last-light', 'small-weather', 'after-the-rain', 'postcard-home', 'night-bloom',
-      'under-the-same-moon', 'slow-dancing-in-the-kitchen', 'wish-you-were-here', 'if-i-could-be-there',
+      'under-the-same-moon', 'slow-dancing-in-the-kitchen', 'wish-you-were-here', 'if-i-could-be-there', 'the-waiting-days', 'everything-i-miss-about-you',
     ]);
   });
 });
