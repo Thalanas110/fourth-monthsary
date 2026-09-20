@@ -418,6 +418,74 @@ Was somewhere in this world I'd roam,
 Then somehow, without even knowing—
 I found my home the day I found you, Madame.`,
   },
+  {
+    id: 'the-weight-we-carried-together', 
+    title: 'The Weight We Carried Together', 
+    author: 'Adriaan M. Dimate', 
+    mood: 'Renewal', 
+    kind: 'poem', 
+    length: '3 min read',
+    excerpt: "We found our strength through all of this—and through it all, I'd still choose us like this.",
+    body: `We never walked an easy road,
+We each were given our own load,
+Yet when the weight began to grow,
+We shared the strength we came to know.
+
+There were some days we both felt tired,
+When even hope itself expired,
+Yet somehow hearts that once felt tired,
+Found one more reason to be inspired.
+
+Sometimes it hurt on your own side,
+Sometimes it hurt on mine inside,
+But neither had a need to hide,
+For somehow we stood side by side.
+
+We couldn't always make things right,
+Or chase away each painful night,
+But we could be each other's light,
+And make the darkness feel less bright.
+
+There were some tears you couldn't show,
+And there were mine you'd never know,
+Yet somehow love would always grow,
+Through things we never had to show.
+
+Some days your strength would carry me,
+Some days I'd be your strength to be,
+And when neither one of us felt free,
+We'd dream about who we could be.
+
+We learned that love is sometimes small,
+A simple message, just a call,
+A "Have you eaten?" through it all,
+That somehow meant much more than all.
+
+We learned that being strong could mean,
+Just staying when the days turned mean,
+Still finding laughter in between,
+And guarding every little dream.
+
+We couldn't carry every pain,
+Or shelter one another from the rain,
+But when the clouds returned again,
+We knew we wouldn't walk in vain.
+
+And maybe someday we'll look back,
+At every road and every crack,
+And wonder how we stayed on track,
+When life kept pushing both hearts back.
+
+I'll tell you then what I know now,
+We didn't need to understand how,
+We simply made one quiet vow:
+"We'll keep on going, here and now."
+
+So let the world remember this,
+Not every love begins in bliss,
+We found our strength through all of this—
+And through it all, I'd still choose us like this.`,
+  },
 ];
 
 export const moods = ['All feelings', 'Longing', 'Stillness', 'Tenderness', 'Renewal', 'Nostalgia', 'Wonder'];
