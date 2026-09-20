@@ -10,6 +10,7 @@ describe('HeroSection', () => {
     expect(markup).toContain('Happy 4th');
     expect(markup).toContain('monthsary, my madame :DD');
     expect(markup).toContain('A random surprise collection for our fourth monthsary, just for you.');
+    expect(markup).toContain('data-testid="hero-lantern"');
 
     const leafLayers = [...markup.matchAll(/<div class="hero-leaf-layer" aria-hidden="true">([\s\S]*?)<\/div>/g)];
     const leafLayerContents = leafLayers[0]?.[1] ?? '';

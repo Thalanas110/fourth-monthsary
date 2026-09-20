@@ -1,7 +1,13 @@
 import { useHeroScrollFade } from '@/hooks/use-hero-scroll-fade';
 import { FallingLeaves } from '@/components/main/falling-leaves';
+import { LanternButton } from '@/components/main/lantern-button';
 
-export function HeroSection() {
+export interface HeroSectionProps {
+  isSongsUnlocked?: boolean;
+  onLanternClick?: () => void;
+}
+
+export function HeroSection({ isSongsUnlocked = false, onLanternClick = () => undefined }: HeroSectionProps) {
   const { heroRef, transitionRef } = useHeroScrollFade<HTMLElementTagNameMap['section'], HTMLElementTagNameMap['div']>();
 
   return (
@@ -14,6 +20,9 @@ export function HeroSection() {
         <p className="hero-description fade-in delay-2">
           A random surprise collection for our fourth monthsary, just for you.
         </p>
+      </div>
+      <div className="hero-lantern-wrap fade-in delay-2">
+        <LanternButton isUnlocked={isSongsUnlocked} onClick={onLanternClick} placement="hero" />
       </div>
       <div className="hero-rule fade-in delay-3"><span className="scroll-mark">↓</span> Scroll to choose a poem</div>
     </section>
