@@ -76,15 +76,17 @@ describe('SongPage', () => {
     cleanup();
   });
 
-  it('renders the song detail and native audio controls after access is granted', () => {
+  it('renders the song detail and custom player after access is granted', () => {
     window.localStorage.setItem(SONG_UNLOCK_STORAGE_KEY, 'true');
     window.localStorage.setItem(SONG_ACCESS_STORAGE_KEY, 'true');
     const { container, cleanup } = renderSongPage();
 
     expect(container.querySelector('[data-testid="page-song"]')).not.toBeNull();
     expect(container.textContent).toContain(songs[0].title);
+    expect(container.querySelector('[data-testid="song-player"]')).not.toBeNull();
     expect(container.querySelector('audio')).not.toBeNull();
-    expect(container.querySelector('audio')?.getAttribute('aria-label')).toBe(`Play ${songs[0].title}`);
+    expect(container.querySelector('[data-testid="button-song-playback"]')?.getAttribute('aria-label'))
+      .toBe(`Play ${songs[0].title}`);
     expect(container.querySelector('[data-testid="text-song-body"]')?.textContent)
       .toContain('The room was quieter than I imagined,');
     cleanup();

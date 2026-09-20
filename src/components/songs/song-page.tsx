@@ -4,6 +4,7 @@ import { AmbientField } from '@/components/main/ambient-field';
 import { FallingLeaves } from '@/components/main/falling-leaves';
 import { SiteHeader } from '@/components/main/site-header';
 import { SongAccessBoundary } from '@/components/songs/song-access-boundary';
+import { SongPlayer } from '@/components/songs/song-player';
 import type { Song } from '@/data/songs';
 import { getSongsPath } from '@/lib/routes';
 import NotFound from '@/pages/not-found';
@@ -51,10 +52,7 @@ export function SongPage({ basePath = import.meta.env.BASE_URL, song }: SongPage
 
                 <div className="song-page-reading-column">
                   <div aria-hidden="true" className="song-page-rule" />
-                  <div className="song-page-audio">
-                    <audio aria-label={`Play ${song.title}`} controls preload="none" src={song.audioSrc} />
-                  </div>
-                  {song.body.trim() && <p className="song-page-body" data-testid="text-song-body">{song.body}</p>}
+                  <SongPlayer song={song} />
                   <footer className="song-page-footer">
                     <p>Keep the song that found you.</p>
                   </footer>
