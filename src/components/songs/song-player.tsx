@@ -25,6 +25,7 @@ export function SongPlayer({ song }: SongPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasPlaybackError, setHasPlaybackError] = useState(false);
 
+  const hasAudio = Boolean(song.audioSrc);
   const updateDuration = () => setDuration(asDuration(audioRef.current?.duration ?? 0));
   const updateCurrentTime = () => setCurrentTime(asDuration(audioRef.current?.currentTime ?? 0));
 
@@ -58,28 +59,30 @@ export function SongPlayer({ song }: SongPlayerProps) {
 
   return (
     <section aria-label={`Player for ${song.title}`} className="song-player" data-testid="song-player">
-      <audio
-        aria-hidden="true"
-        className="song-player-audio"
-        onEnded={() => {
-          setCurrentTime(duration);
-          setIsPlaying(false);
-        }}
-        onError={() => {
-          setHasPlaybackError(true);
-          setIsPlaying(false);
-        }}
-        onLoadedMetadata={updateDuration}
-        onPause={() => setIsPlaying(false)}
-        onPlay={() => {
-          setHasPlaybackError(false);
-          setIsPlaying(true);
-        }}
-        onTimeUpdate={updateCurrentTime}
-        preload="metadata"
-        ref={audioRef}
-        src={song.audioSrc}
-      />
+      {hasAudio && (
+        <audio
+          aria-hidden="true"
+          className="song-player-audio"
+          onEnded={() => {
+            setCurrentTime(duration);
+            setIsPlaying(false);
+          }}
+          onError={() => {
+            setHasPlaybackError(true);
+            setIsPlaying(false);
+          }}
+          onLoadedMetadata={updateDuration}
+          onPause={() => setIsPlaying(false)}
+          onPlay={() => {
+            setHasPlaybackError(false);
+            setIsPlaying(true);
+          }}
+          onTimeUpdate={updateCurrentTime}
+          preload="metadata"
+          ref={audioRef}
+          src={song.audioSrc}
+        />
+      )}
 
       <div className="song-player-header">
         <p className="song-player-title">{song.title}</p>
@@ -92,6 +95,7 @@ export function SongPlayer({ song }: SongPlayerProps) {
           aria-pressed={isPlaying}
           className="song-player-playback"
           data-testid="button-song-playback"
+          disabled={!hasAudio}
           onClick={handlePlayback}
           type="button"
         >
@@ -103,7 +107,7 @@ export function SongPlayer({ song }: SongPlayerProps) {
           <label className="sr-only" htmlFor={`song-seek-${song.id}`}>Seek {song.title}</label>
           <input
             aria-label={`Seek ${song.title}`}
-            disabled={!duration}
+            disabled={!hasAudio || !duration}
             id={`song-seek-${song.id}`}
             max={duration}
             min="0"
@@ -117,7 +121,7 @@ export function SongPlayer({ song }: SongPlayerProps) {
         </div>
       </div>
 
-      {hasPlaybackError && <p aria-live="polite" className="song-player-error" role="status">Playback unavailable.</p>}
+      {(!hasAudio || hasPlaybackError) && <p aria-live="polite" className="song-player-error" role="status">Playback unavailable.</p>}
 
       {song.body.trim() && (
         <div className="song-player-lyrics">

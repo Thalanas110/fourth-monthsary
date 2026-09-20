@@ -8,14 +8,14 @@ import { songs } from '@/data/songs';
 
 Object.defineProperty(globalThis, 'IS_REACT_ACT_ENVIRONMENT', { configurable: true, value: true });
 
-function renderSongPlayer() {
+function renderSongPlayer(song = songs[0]) {
   const container = document.createElement('div');
   document.body.appendChild(container);
   let root: Root | undefined;
 
   act(() => {
     root = createRoot(container);
-    root.render(<SongPlayer song={songs[0]} />);
+    root.render(<SongPlayer song={song} />);
   });
 
   return {
@@ -38,6 +38,25 @@ describe('SongPlayer', () => {
       .toContain('The room was quieter than I imagined,');
     expect(container.querySelector('[data-testid="button-song-playback"]')?.getAttribute('aria-label'))
       .toBe(`Play ${songs[0].title}`);
+    cleanup();
+  });
+
+  it('renders lyrics-only songs without an audio element', () => {
+    const { container, cleanup } = renderSongPlayer({
+      id: 'lyrics-only-song',
+      title: 'Lyrics Only Song',
+      author: 'Test artist',
+      duration: 0,
+      length: 'Lyrics only',
+      excerpt: 'A song without bundled audio.',
+      body: 'These lyrics should still be readable.',
+    });
+
+    expect(container.querySelector('audio')).toBeNull();
+    expect(container.querySelector('[data-testid="button-song-playback"]')?.getAttribute('disabled')).not.toBeNull();
+    expect(container.textContent).toContain('Playback unavailable.');
+    expect(container.querySelector('[data-testid="text-song-body"]')?.textContent)
+      .toContain('These lyrics should still be readable.');
     cleanup();
   });
 

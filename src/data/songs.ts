@@ -8,7 +8,7 @@ export type Song = {
     length: string;
     excerpt: string;
     body: string;
-    audioSrc: string;
+    audioSrc?: string;
 };
 
 export const songs: Song[] = [{
@@ -143,4 +143,92 @@ And we'll take all the time we need
 to become the people
 who can finally live that morning.`,
     audioSrc: aisleSong,
+}, {
+    id: 'if-you-could-see-what-i-see',
+    title: 'If You Could See What I See',
+    author: 'Adriaan M. Dimate',
+    duration: 0,
+    length: 'Lyrics only',
+    excerpt: 'A song about lending kinder eyes to the person you love.',
+    body: `Verse 1
+
+Sometimes I wonder what you see
+when you're alone before the mirror.
+Do you count the things you wish would change,
+until the good becomes much harder to remember?
+
+Because that's never where my eyes begin.
+I see your laugh, your sleepy replies,
+the random stories nobody would remember,
+and the dreams still growing behind your eyes.
+
+Pre-Chorus
+
+If I could lend you my eyes
+for just one night,
+maybe you'd finally understand
+why I hold you so close inside.
+
+Chorus
+
+If you could see what I see, Madame,
+you'd see someone worth waiting for,
+the girl whose smallest little message
+can make me smile once more.
+
+You'd see the one I miss and worry for,
+the one I dream of holding too.
+I never needed you to be perfect-
+I fell in love with you.
+
+Verse 2
+
+We've had days that lasted forever,
+and nights that asked too much of us.
+We've known the ache of being distant,
+and learned how difficult it is to trust
+
+that morning always follows darkness,
+that silence doesn't erase what's true.
+And somehow through these three short months,
+my heart kept finding home in you.
+
+Bridge
+
+Someday we'll find these old conversations
+and laugh at how young we used to be.
+We'll remember how badly we wanted
+the future we couldn't yet see.
+
+And maybe I'll look beside me
+and find that future looking back-
+
+the same eyes I fell for years ago,
+still smiling back at me.
+
+Final Chorus
+
+If you could see what I see, Madame,
+you'd see how precious you've become.
+Through every laugh, every difficult day,
+every distance we've overcome.
+
+And years from now, if we're together,
+with silver beginning to show,
+I'll still see the girl behind that screen
+I couldn't bear to let go.
+
+Outro
+
+So when you look into the mirror
+and only see the things you'd change,
+I wish that for five little minutes
+I could lend my eyes your way.
+
+Because then you'd finally meet
+the girl I've been falling in love with.
+
+And maybe, Madame-
+
+you'd love her too.`,
 }];
