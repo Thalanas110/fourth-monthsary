@@ -23,12 +23,19 @@ describe('SongLibrary', () => {
     expect(markup).toContain('No songs have been added yet.');
   });
 
-  it('renders native audio controls for local song entries', () => {
+  it('renders the song metadata for local entries', () => {
     const markup = renderToStaticMarkup(<SongLibrary songs={[song]} />);
 
     expect(markup).toContain('Test song');
-    expect(markup).toContain('aria-label="Play Test song"');
-    expect(markup).toContain('controls');
-    expect(markup).toContain('src="/audio/test-song.mp3"');
+    expect(markup).toContain('Test artist');
+    expect(markup).toContain('3:00');
+  });
+
+  it('links each song card to its detail page without embedding audio', () => {
+    const markup = renderToStaticMarkup(<SongLibrary basePath="/monthsary/" songs={[song]} />);
+
+    expect(markup).toContain('href="/monthsary/songs/test-song"');
+    expect(markup).toContain('aria-label="Listen to Test song"');
+    expect(markup).not.toContain('<audio');
   });
 });

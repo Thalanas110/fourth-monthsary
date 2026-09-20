@@ -1,10 +1,13 @@
+import { ArrowRight } from 'lucide-react';
 import type { Song } from '@/data/songs';
+import { getSongPath } from '@/lib/routes';
 
 export interface SongLibraryProps {
+  basePath?: string;
   songs: Song[];
 }
 
-export function SongLibrary({ songs }: SongLibraryProps) {
+export function SongLibrary({ basePath = import.meta.env.BASE_URL, songs }: SongLibraryProps) {
   return (
     <section aria-labelledby="songs-title" className="songs-section" data-testid="song-library" id="songs">
       <div className="songs-inner">
@@ -27,8 +30,12 @@ export function SongLibrary({ songs }: SongLibraryProps) {
                 </div>
                 <h3 className="song-title">{song.title}</h3>
                 <p className="song-excerpt">{song.excerpt}</p>
-                <p className="song-author">by {song.author}</p>
-                <audio aria-label={`Play ${song.title}`} controls preload="none" src={song.audioSrc} />
+                <div className="card-footer">
+                  <span className="song-author">by {song.author} · {song.length}</span>
+                  <a aria-label={`Listen to ${song.title}`} className="read-button" data-testid={`link-listen-${song.id}`} href={getSongPath(song.id, basePath)}>
+                    Listen <ArrowRight aria-hidden="true" />
+                  </a>
+                </div>
               </article>
             ))}
           </div>
