@@ -5,8 +5,8 @@ export function RitualSection() {
         <div className="ritual-inner">
           <h2 className="ritual-quote" id="ritual-title">Read slowly.<br />Let a line <span>find you.</span></h2>
           <div className="ritual-copy">
-            <div className="eyebrow">A note from the lantern keeper</div>
-            <p>Poem Lantern is a little place to pause. No feeds to catch up on, no perfect answer waiting. Just a handful of voices, and the space to hear one clearly.</p>
+            <div className="eyebrow">A note for Annah Claire</div>
+            <p>Four months with you already, and I still find new reasons to choose you. I made this little collection for you, so you can come back to the poems, songs, and small pieces of us whenever you want. Happy 4th monthsary, my madame :DD</p>
           </div>
         </div>
       </section>
