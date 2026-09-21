@@ -10,7 +10,7 @@ export function RitualSection() {
           </div>
         </div>
       </section>
-      <footer className="footer"><span>Poem Lantern · made for the in-between</span><span className="mono">© 2024</span></footer>
+      <footer className="footer"><span>Made for Annah Claire · our 4th monthsary</span><span className="mono">September 19, 2026</span></footer>
     </>
   );
 }

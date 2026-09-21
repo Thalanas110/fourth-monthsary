@@ -1,3 +1,21 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <defs>
+    <radialGradient id="lantern-glow" cx="0" cy="0" r="1" gradientTransform="translate(90 96) rotate(90) scale(58)">
+      <stop stop-color="#F7B567" stop-opacity="0.42" />
+      <stop offset="1" stop-color="#F7B567" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="lantern-body" x1="50" y1="64" x2="130" y2="136" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A3851" />
+      <stop offset="1" stop-color="#231927" />
+    </linearGradient>
+  </defs>
+
+  <rect width="180" height="180" rx="36" fill="#17141F" />
+  <circle cx="90" cy="96" r="58" fill="url(#lantern-glow)" />
+  <path d="M62 65V53C62 34 118 34 118 53V65" stroke="#F7B567" stroke-width="8" stroke-linecap="round" />
+  <path d="M78 52H102" stroke="#F7B567" stroke-width="8" stroke-linecap="round" />
+  <path id="lantern-frame" d="M57 65H123L132 132H48L57 65Z" fill="url(#lantern-body)" stroke="#F7B567" stroke-width="7" stroke-linejoin="round" />
+  <path d="M51 84H129M48 116H132" stroke="#F7B567" stroke-opacity="0.56" stroke-width="4" />
+  <path id="lantern-flame" d="M90 120C76 114 77 101 89 88C90 99 98 100 99 108C101 115 96 120 90 120Z" fill="#F7B567" />
+  <path d="M45 135H135" stroke="#F7B567" stroke-width="8" stroke-linecap="round" />
 </svg>
